@@ -1,0 +1,5266 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #05070a;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================
+   GŁÓWNA STRONA
+========================= */
+
+.story {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* =========================
+   SCENY
+========================= */
+
+.scene {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 45% 55%;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.04);
+    transition:
+        opacity 0.8s ease,
+        transform 1s ease,
+        visibility 0.8s;
+}
+
+.scene.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+/* =========================
+   LEWA STRONA
+========================= */
+
+.scene-content {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 9vw;
+    padding-right: 3vw;
+}
+
+.category {
+    margin-bottom: 20px;
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: #4da3ff;
+}
+
+h1,
+h2 {
+    font-size: clamp(45px, 5vw, 85px);
+    line-height: 0.95;
+    font-weight: 800;
+    letter-spacing: -3px;
+}
+
+h1 span,
+h2 span {
+    color: #4da3ff;
+}
+
+.scene-content p {
+    max-width: 520px;
+    margin-top: 35px;
+    color: #9ca3af;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.info {
+    margin-top: 30px;
+    color: #4da3ff;
+    font-size: 12px;
+    letter-spacing: 3px;
+    line-height: 2;
+}
+
+/* =========================
+   PRZYCISK
+========================= */
+
+.contact-button {
+    width: fit-content;
+    margin-top: 35px;
+    padding: 16px 28px;
+    border: 1px solid #4da3ff;
+    background: transparent;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-button:hover {
+    background: #4da3ff;
+    color: #05070a;
+    box-shadow:
+        0 0 30px rgba(77, 163, 255, 0.4);
+}
+
+/* =========================
+   PRAWA STRONA
+========================= */
+
+.scene-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.scene-visual::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: #087cff;
+    filter: blur(180px);
+    opacity: 0.08;
+}
+
+.placeholder {
+    position: relative;
+    width: 75%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(77, 163, 255, 0.2);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.04),
+            rgba(255,255,255,0.01)
+        );
+    box-shadow:
+        0 0 80px rgba(0, 120, 255, 0.08);
+    color: #4da3ff;
+}
+
+.placeholder span {
+    font-size: 45px;
+    font-weight: 800;
+    letter-spacing: 5px;
+}
+
+.placeholder small {
+    margin-top: 15px;
+    color: #555;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+/* =========================
+   SCROLL
+========================= */
+
+.scroll-indicator {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #777;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.scroll-line {
+    width: 70px;
+    height: 1px;
+    background: #222;
+}
+
+.scroll-progress {
+    width: 14%;
+    height: 1px;
+    background: #4da3ff;
+    transition: width 0.5s ease;
+}
+
+/* =========================
+   PRZYCISKI NAWIGACJI
+========================= */
+
+.navigation {
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transform: translateY(-50%);
+}
+
+.navigation button {
+    width: 42px;
+    height: 42px;
+    border: 1px solid #222;
+    background: rgba(5, 7, 10, 0.7);
+    color: #777;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.navigation button:hover {
+    border-color: #4da3ff;
+    color: #4da3ff;
+}
+
+/* =========================
+   TELEFON
+========================= */
+
+@media (max-width: 800px) {
+
+    .scene {
+        grid-template-columns: 1fr;
+    }
+
+    .scene-content {
+        justify-content: flex-end;
+        padding: 0 30px 100px;
+    }
+
+    .scene-number {
+        top: 30px;
+        left: 30px;
+    }
+
+    h1,
+    h2 {
+        font-size: 48px;
+    }
+
+    .scene-content p {
+        font-size: 14px;
+    }
+
+    .scene-visual {
+        position: absolute;
+        inset: 0;
+        opacity: 0.25;
+    }
+
+    .placeholder {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    .navigation {
+        right: 20px;
+    }
+
+    .scroll-indicator {
+        right: 20px;
+        bottom: 20px;
+    }
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.site-logo {
+    position: fixed;
+    top: 30px;
+    left: 40px;
+    z-index: 100;
+    display: block;
+}
+
+.site-logo img {
+    display: block;
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+    transition: 0.3s;
+}
+
+.site-logo:hover img {
+    transform: scale(1.04);
+}
+
+/* LOGO — TELEFON */
+
+@media (max-width: 800px) {
+
+    .site-logo {
+        top: 20px;
+        left: 25px;
+    }
+
+    .site-logo img {
+        width: 120px;
+    }
+}
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+.hero-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: 30% center;
+    display: block;
+    filter: brightness(0.9);
+    transition: transform 1.2s ease;
+}
+
+.scene.active .hero-image img {
+    transform: translateX(-60px) scale(1.03);
+}
+
+.hero-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 7, 10, 0.45) 0%,
+            rgba(5, 7, 10, 0.08) 45%,
+            transparent 70%
+        );
+    pointer-events: none;
+}
+
+/* =========================
+   CPU IMAGE
+========================= */
+
+.cpu-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.cpu-image .cpu-photo {
+    position: absolute;
+    top: 50%;
+    left: 53%;
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    display: block;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    filter: brightness(0.9);
+}
+
+/* =========================
+   GPU IMAGE
+========================= */
+
+.gpu-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.gpu-image .gpu-photo {
+    position: absolute;
+    top: 50%;
+    left: 53%;
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    display: block;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    filter: brightness(0.9);
+}
+
+/* CLEANING IMAGE */
+
+.cleaning-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.cleaning-image .cleaning-photo {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    display: block;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    filter: brightness(0.9);
+}
+
+/* UPGRADE IMAGE */
+
+.upgrade-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.upgrade-image .upgrade-photo {
+    position: absolute;
+    top: 50%;
+    left: 52%;
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    display: block;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    filter: brightness(0.9);
+}
+
+/* STAŁY PRZYCISK KONTAKTU */
+
+.fixed-contact {
+    position: fixed;
+    left: 300px;
+    bottom: 80px;
+    z-index: 100;
+    padding: 14px 24px;
+    border: 1px solid #4da3ff;
+    background: rgba(5, 7, 10, 0.75);
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.fixed-contact.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.fixed-contact:hover {
+    background: #4da3ff;
+    color: #05070a;
+    box-shadow:
+        0 0 30px rgba(77, 163, 255, 0.4);
+}
+
+/* DIAGNOSTICS IMAGE */
+
+.diagnostics-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.diagnostics-image .diagnostics-photo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    display: block;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    filter: brightness(0.9);
+}
+
+/* CONTACT IMAGE */
+
+.contact-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-image .contact-photo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    display: block;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    filter: brightness(0.9);
+}
+
+/* PANEL KONTAKTOWY */
+
+.contact-content {
+    justify-content: center;
+}
+
+.contact-details {
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contact-details span {
+    color: #4da3ff;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.contact-details a {
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.contact-details a:hover {
+    color: #4da3ff;
+}
+
+/* FORMULARZ */
+
+.contact-form {
+    position: relative;
+    z-index: 5;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 35px;
+    border: 1px solid rgba(77, 163, 255, 0.2);
+    background: rgba(5, 7, 10, 0.75);
+    box-shadow:
+        0 0 80px rgba(0, 120, 255, 0.08);
+    backdrop-filter: blur(10px);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px 0;
+    border: none;
+    border-bottom: 1px solid #252a31;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.contact-form textarea {
+    height: 120px;
+    resize: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-bottom-color: #4da3ff;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #666;
+}
+
+.contact-form button {
+    margin-top: 10px;
+    padding: 15px;
+    border: 1px solid #4da3ff;
+    background: transparent;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background: #4da3ff;
+    color: #05070a;
+    box-shadow:
+        0 0 30px rgba(77, 163, 255, 0.4);
+}
+
+
+/* =====================================================
+   UPGRADE PANEL — SCENA 05
+===================================================== */
+
+.upgrade-panel-area {
+    position: relative;
+    overflow: hidden;
+}
+
+.upgrade-panel {
+    position: relative;
+    z-index: 5;
+    width: 75%;
+    padding: 32px;
+    border: 1px solid rgba(77, 163, 255, 0.25);
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.04),
+        rgba(255,255,255,0.01)
+    );
+    box-shadow: 0 0 80px rgba(0,120,255,0.08);
+    backdrop-filter: blur(10px);
+}
+
+.upgrade-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.upgrade-status {
+    color: #39ff14;
+    font-size: 9px;
+    letter-spacing: 2px;
+    white-space: nowrap;
+    text-shadow:
+        0 0 5px rgba(57, 255, 20, 0.8),
+        0 0 12px rgba(57, 255, 20, 0.5),
+        0 0 20px rgba(57, 255, 20, 0.3);
+}
+
+.upgrade-line {
+    width: 100%;
+    height: 1px;
+    margin: 22px 0;
+    background: rgba(77, 163, 255, 0.15);
+}
+
+.upgrade-item {
+    display: grid;
+    grid-template-columns: 105px 1fr 90px;
+    align-items: center;
+    gap: 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.upgrade-name {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.upgrade-name span {
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.upgrade-name small {
+    color: #555;
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+.upgrade-bar {
+    width: 100%;
+    height: 3px;
+    background: #161a20;
+    overflow: hidden;
+}
+
+.upgrade-bar span {
+    display: block;
+    height: 100%;
+    background: #4da3ff;
+    box-shadow: 0 0 10px rgba(77,163,255,0.5);
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.upgrade-item strong {
+    color: #4da3ff;
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-align: right;
+}
+
+.performance {
+    margin-top: 5px;
+}
+
+.performance-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #777;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.performance-header strong {
+    color: #4da3ff;
+    font-size: 11px;
+}
+
+.performance-bar {
+    width: 100%;
+    height: 4px;
+    background: #161a20;
+    overflow: hidden;
+}
+
+.performance-bar span {
+    display: block;
+    width: 82%;
+    height: 100%;
+    background: #4da3ff;
+    box-shadow: 0 0 12px rgba(77,163,255,0.6);
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.upgrade-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.upgrade-footer span {
+    color: #555;
+}
+
+.upgrade-footer strong {
+    color: #4da3ff;
+    font-size: 9px;
+}
+
+.scene.active .upgrade-bar span {
+    animation: upgradeBars 0.9s ease forwards;
+}
+
+.scene.active .upgrade-item:nth-of-type(1) .upgrade-bar span {
+    animation-delay: 0.2s;
+}
+
+.scene.active .upgrade-item:nth-of-type(2) .upgrade-bar span {
+    animation-delay: 0.4s;
+}
+
+.scene.active .upgrade-item:nth-of-type(3) .upgrade-bar span {
+    animation-delay: 0.6s;
+}
+
+.scene.active .upgrade-item:nth-of-type(4) .upgrade-bar span {
+    animation-delay: 0.8s;
+}
+
+@keyframes upgradeBars {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+.scene.active .performance-bar span {
+    animation: performanceLoad 1.2s ease 1s forwards;
+}
+
+@keyframes performanceLoad {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+.scene.active .upgrade-panel {
+    animation: upgradePanelIn 0.8s ease forwards;
+}
+
+@keyframes upgradePanelIn {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.upgrade-red {
+    color: #ff3b3b !important;
+}
+
+.upgrade-green {
+    color: #35d07f !important;
+}
+
+.upgrade-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.upgrade-footer strong {
+    color: #4da3ff;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+}
+
+/* =========================================
+   SCENA 04 — CLEANING PROCESS
+========================================= */
+
+.scene[data-scene="4"] .cleaning-process {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scene[data-scene="4"] .cleaning-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    opacity: 0.45;
+    filter:
+        brightness(0.65)
+        contrast(1.05);
+    transform: scale(1.03);
+    transition:
+        transform 1.2s ease,
+        opacity 0.8s ease;
+}
+
+.scene.active[data-scene="4"] .cleaning-background {
+    transform: scale(1);
+    opacity: 0.55;
+}
+
+.scene[data-scene="4"] .cleaning-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5,7,10,0.25),
+            rgba(5,7,10,0.65)
+        );
+    z-index: 1;
+    pointer-events: none;
+}
+
+.scene[data-scene="4"] .cleaning-panel {
+    position: relative;
+    z-index: 5;
+    width: 75%;
+    padding: 30px;
+    border: 1px solid rgba(77, 163, 255, 0.22);
+    background: rgba(5, 7, 10, 0.28);
+    box-shadow: 0 0 50px rgba(0, 120, 255, 0.04);
+    backdrop-filter: none;
+}
+
+.cleaning-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.cleaning-counter {
+    color: #4da3ff;
+    font-size: 9px;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+.cleaning-progress {
+    width: 100%;
+    height: 3px;
+    margin-top: 22px;
+    background: #161a20;
+    overflow: hidden;
+}
+
+.cleaning-progress span {
+    display: block;
+    width: 78%;
+    height: 100%;
+    background: #4da3ff;
+    box-shadow:
+        0 0 12px rgba(77,163,255,0.6);
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.cleaning-steps {
+    margin-top: 22px;
+}
+
+.cleaning-step {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 11px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    color: #555;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.cleaning-step.active {
+    color: #aaa;
+}
+
+.step-icon {
+    width: 18px;
+    color: #4da3ff;
+    font-size: 11px;
+    text-align: center;
+}
+
+.cleaning-step:nth-child(3) .step-icon {
+    color: #ffb000;
+}
+
+.cleaning-step:nth-child(4) .step-icon {
+    color: #444;
+}
+
+.cleaning-divider {
+    width: 100%;
+    height: 1px;
+    margin: 20px 0;
+    background: rgba(77,163,255,0.15);
+}
+
+.airflow-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #777;
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.airflow-header span:last-child {
+    color: #39ff14;
+    text-shadow:
+        0 0 5px rgba(57,255,20,0.7),
+        0 0 12px rgba(57,255,20,0.4);
+}
+
+.airflow-bar {
+    width: 100%;
+    height: 4px;
+    background: #161a20;
+    overflow: hidden;
+}
+
+.airflow-bar span {
+    display: block;
+    width: 86%;
+    height: 100%;
+    background:
+        linear-gradient(
+            90deg,
+            #4da3ff,
+            #39c5ff,
+            #4da3ff
+        );
+    box-shadow:
+        0 0 12px rgba(77,163,255,0.6);
+    transform: translateX(-100%);
+}
+
+.temperature {
+    margin-top: 24px;
+}
+
+.temperature-title {
+    color: #555;
+    font-size: 8px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.temperature-values {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.temperature-values > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.temperature-values small {
+    color: #555;
+    font-size: 7px;
+    letter-spacing: 2px;
+}
+
+.temperature-values strong {
+    color: white;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.temperature-values > div:last-child strong {
+    color: #39ff14;
+    text-shadow:
+        0 0 6px rgba(57,255,20,0.5);
+}
+
+.temperature-arrow {
+    color: #4da3ff;
+    font-size: 18px;
+}
+
+.cleaning-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: #39ff14;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-shadow:
+        0 0 5px rgba(57,255,20,0.7),
+        0 0 12px rgba(57,255,20,0.4);
+}
+
+.cleaning-status span {
+    font-size: 8px;
+}
+
+.scene.active[data-scene="4"] .cleaning-panel {
+    animation:
+        cleaningPanelIn
+        0.8s
+        ease
+        forwards;
+}
+
+@keyframes cleaningPanelIn {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.scene.active[data-scene="4"] .cleaning-progress span {
+    animation:
+        cleaningProgress
+        1.2s
+        ease
+        0.3s
+        forwards;
+}
+
+@keyframes cleaningProgress {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+.scene.active[data-scene="4"] .airflow-bar span {
+    animation:
+        airflowMove
+        1.5s
+        ease
+        1.2s
+        forwards;
+}
+
+@keyframes airflowMove {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* =========================================
+   SCENA 03 — GPU PREMIUM SHOWCASE
+========================================= */
+
+.scene[data-scene="3"] .gpu-image {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scene[data-scene="3"] .gpu-photo {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 88% !important;
+    height: 88% !important;
+    object-fit: contain !important;
+    transform: translate(-50%, -50%) !important;
+    display: block !important;
+    opacity: 1 !important;
+    z-index: 2;
+    filter:
+        brightness(1)
+        contrast(1.05)
+        drop-shadow(0 0 45px rgba(77,163,255,0.18));
+}
+
+.scene[data-scene="3"] .gpu-image::before {
+    content: "";
+    position: absolute;
+    inset: 8%;
+    z-index: 1;
+    background:
+        linear-gradient(
+            rgba(77,163,255,0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(77,163,255,0.035) 1px,
+            transparent 1px
+        );
+    background-size: 35px 35px;
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent,
+            black 20%,
+            black 80%,
+            transparent
+        );
+    pointer-events: none;
+}
+
+.scene[data-scene="3"] .gpu-image {
+    isolation: isolate;
+}
+
+.scene[data-scene="3"] .gpu-showcase {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.scene[data-scene="3"] .gpu-online {
+    position: absolute;
+    top: 10%;
+    right: 7%;
+    padding: 9px 13px;
+    border: 1px solid rgba(57,255,20,0.3);
+    background: rgba(5,7,10,0.28);
+    color: #39ff14;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow:
+        0 0 5px rgba(57,255,20,0.8),
+        0 0 14px rgba(57,255,20,0.4);
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.scene.active[data-scene="3"] .gpu-online {
+    animation:
+        gpuHudIn
+        0.6s
+        ease
+        0.4s
+        forwards;
+}
+
+.scene[data-scene="3"] .gpu-data {
+    position: absolute;
+    padding: 10px 14px;
+    border-left: 1px solid rgba(77,163,255,0.55);
+    background: rgba(5,7,10,0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.scene[data-scene="3"] .gpu-data small {
+    color: #666;
+    font-size: 7px;
+    letter-spacing: 2px;
+}
+
+.scene[data-scene="3"] .gpu-data strong {
+    color: #4da3ff;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-shadow:
+        0 0 8px rgba(77,163,255,0.4);
+}
+
+.scene[data-scene="3"] .gpu-core {
+    top: 28%;
+    right: 7%;
+}
+
+.scene[data-scene="3"] .gpu-memory {
+    top: 46%;
+    right: 10%;
+}
+
+.scene[data-scene="3"] .gpu-temp {
+    bottom: 25%;
+    right: 13%;
+}
+
+.scene[data-scene="3"] .gpu-temp strong {
+    color: #39ff14;
+    text-shadow:
+        0 0 8px rgba(57,255,20,0.5);
+}
+
+.scene.active[data-scene="3"] .gpu-core {
+    animation:
+        gpuHudIn
+        0.6s
+        ease
+        0.7s
+        forwards;
+}
+
+.scene.active[data-scene="3"] .gpu-memory {
+    animation:
+        gpuHudIn
+        0.6s
+        ease
+        0.9s
+        forwards;
+}
+
+.scene.active[data-scene="3"] .gpu-temp {
+    animation:
+        gpuHudIn
+        0.6s
+        ease
+        1.1s
+        forwards;
+}
+
+@keyframes gpuHudIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.scene[data-scene="3"] .gpu-performance {
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    bottom: 8%;
+    padding: 14px 16px;
+    background: rgba(5,7,10,0.35);
+    border: 1px solid rgba(77,163,255,0.18);
+    opacity: 0;
+    transform: translateY(15px);
+}
+
+.scene.active[data-scene="3"] .gpu-performance {
+    animation:
+        gpuPerformanceIn
+        0.7s
+        ease
+        1.3s
+        forwards;
+}
+
+@keyframes gpuPerformanceIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gpu-performance-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 9px;
+    color: #777;
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.gpu-performance-header strong {
+    color: #4da3ff;
+    font-size: 11px;
+}
+
+.gpu-performance-bar {
+    width: 100%;
+    height: 3px;
+    background: #161a20;
+    overflow: hidden;
+}
+
+.gpu-performance-bar span {
+    display: block;
+    width: 87%;
+    height: 100%;
+    background: #4da3ff;
+    box-shadow:
+        0 0 12px rgba(77,163,255,0.7);
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.scene.active[data-scene="3"] .gpu-performance-bar span {
+    animation:
+        gpuPerformanceBar
+        1.2s
+        ease
+        1.7s
+        forwards;
+}
+
+@keyframes gpuPerformanceBar {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+.gpu-performance-scale {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+    color: #444;
+    font-size: 7px;
+    letter-spacing: 1px;
+}
+
+.scene[data-scene="3"] .gpu-scan-line {
+    position: absolute;
+    top: 8%;
+    bottom: 8%;
+    left: 18%;
+    width: 1px;
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(77,163,255,0.7),
+            transparent
+        );
+    opacity: 0;
+}
+
+.scene.active[data-scene="3"] .gpu-scan-line {
+    animation:
+        gpuScan
+        2.2s
+        ease-in-out
+        1.8s;
+}
+
+@keyframes gpuScan {
+    0% {
+        left: 18%;
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 82%;
+        opacity: 0;
+    }
+}
+
+/* =========================================
+   SCENA 05 — ELEGANT UPGRADE LAB
+========================================= */
+
+.scene[data-scene="5"] .upgrade-showcase {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8vh 8vw 7vh 3vw;
+    box-sizing: border-box;
+}
+
+.scene[data-scene="5"] .upgrade-showcase::before {
+    content: "";
+    position: absolute;
+    inset: 5% 5% 5% 0;
+    background:
+        linear-gradient(
+            rgba(77,163,255,0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(77,163,255,0.025) 1px,
+            transparent 1px
+        );
+    background-size: 45px 45px;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.scene[data-scene="5"] .upgrade-label {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 25px;
+    color: #666;
+    font-size: 8px;
+    letter-spacing: 3px;
+    opacity: 0;
+}
+
+.scene[data-scene="5"] .upgrade-label strong {
+    color: #4da3ff;
+    font-size: 8px;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+.scene[data-scene="5"] .upgrade-cards {
+    position: relative;
+    z-index: 5;
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+}
+
+.scene[data-scene="5"] .upgrade-card {
+    position: relative;
+    min-height: 145px;
+    padding: 18px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255,255,255,0.08);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.045),
+            rgba(255,255,255,0.012)
+        );
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.scene[data-scene="5"] .upgrade-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #4da3ff;
+    box-shadow:
+        0 0 15px rgba(77,163,255,0.5);
+    opacity: 0.7;
+}
+
+.scene[data-scene="5"] .upgrade-card::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    right: -60px;
+    bottom: -60px;
+    border-radius: 50%;
+    background: rgba(77,163,255,0.08);
+    filter: blur(25px);
+    pointer-events: none;
+}
+
+.scene[data-scene="5"] .upgrade-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #555;
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.scene[data-scene="5"] .upgrade-card-top span {
+    color: #4da3ff;
+}
+
+.scene[data-scene="5"] .upgrade-card-top small {
+    color: #444;
+    font-size: 7px;
+    letter-spacing: 2px;
+}
+
+.scene[data-scene="5"] .upgrade-card-name {
+    margin-top: 25px;
+    color: white;
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.scene[data-scene="5"] .upgrade-card-line {
+    width: 100%;
+    height: 1px;
+    margin-top: 20px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(77,163,255,0.45),
+            transparent
+        );
+}
+
+.scene[data-scene="5"] .upgrade-card-bottom {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #555;
+    font-size: 7px;
+    letter-spacing: 1.5px;
+}
+
+.scene[data-scene="5"] .upgrade-card-bottom strong {
+    color: #4da3ff;
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+.scene[data-scene="5"] .upgrade-card-cpu::before {
+    background: #39ff14;
+    box-shadow:
+        0 0 15px rgba(57,255,20,0.45);
+}
+
+.scene[data-scene="5"] .upgrade-card-cpu .upgrade-card-bottom strong {
+    color: #39ff14;
+    text-shadow:
+        0 0 7px rgba(57,255,20,0.4);
+}
+
+.scene[data-scene="5"] .upgrade-card-gpu .upgrade-card-name {
+    text-shadow:
+        0 0 20px rgba(77,163,255,0.15);
+}
+
+.scene[data-scene="5"] .upgrade-result {
+    position: relative;
+    z-index: 5;
+    margin-top: 25px;
+    padding: 17px 18px;
+    border-top: 1px solid rgba(77,163,255,0.15);
+    border-bottom: 1px solid rgba(77,163,255,0.08);
+    opacity: 0;
+    transform: translateY(15px);
+}
+
+.scene[data-scene="5"] .upgrade-result-label {
+    color: #555;
+    font-size: 7px;
+    letter-spacing: 2px;
+}
+
+.scene[data-scene="5"] .upgrade-result-value {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-top: 5px;
+}
+
+.scene[data-scene="5"] .upgrade-result-value strong {
+    color: #4da3ff;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    text-shadow:
+        0 0 15px rgba(77,163,255,0.25);
+}
+
+.scene[data-scene="5"] .upgrade-result-value span {
+    color: #555;
+    font-size: 7px;
+    letter-spacing: 2px;
+}
+
+.scene[data-scene="5"] .upgrade-result-bar {
+    width: 100%;
+    height: 2px;
+    margin-top: 12px;
+    background: #161a20;
+    overflow: hidden;
+}
+
+.scene[data-scene="5"] .upgrade-result-bar span {
+    display: block;
+    width: 0;
+    height: 100%;
+    background:
+        linear-gradient(
+            90deg,
+            #4da3ff,
+            #39c5ff
+        );
+    box-shadow:
+        0 0 10px rgba(77,163,255,0.6);
+}
+
+.scene[data-scene="5"] .upgrade-status-line {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18px;
+    color: #555;
+    font-size: 7px;
+    letter-spacing: 2px;
+    opacity: 0;
+}
+
+.scene[data-scene="5"] .upgrade-status-line span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.scene[data-scene="5"] .upgrade-status-line i {
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #39ff14;
+    box-shadow:
+        0 0 8px rgba(57,255,20,0.7);
+}
+
+.scene[data-scene="5"] .upgrade-status-line strong {
+    color: #4da3ff;
+    font-size: 7px;
+    letter-spacing: 1.5px;
+}
+
+.scene.active[data-scene="5"] .upgrade-label {
+    animation:
+        upgradeLabelIn
+        0.6s
+        ease
+        0.2s
+        forwards;
+}
+
+@keyframes upgradeLabelIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scene.active[data-scene="5"] .upgrade-card:nth-child(1) {
+    animation:
+        upgradeCardIn
+        0.7s
+        ease
+        0.4s
+        forwards;
+}
+
+.scene.active[data-scene="5"] .upgrade-card:nth-child(2) {
+    animation:
+        upgradeCardIn
+        0.7s
+        ease
+        0.55s
+        forwards;
+}
+
+.scene.active[data-scene="5"] .upgrade-card:nth-child(3) {
+    animation:
+        upgradeCardIn
+        0.7s
+        ease
+        0.7s
+        forwards;
+}
+
+.scene.active[data-scene="5"] .upgrade-card:nth-child(4) {
+    animation:
+        upgradeCardIn
+        0.7s
+        ease
+        0.85s
+        forwards;
+}
+
+@keyframes upgradeCardIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scene.active[data-scene="5"] .upgrade-result {
+    animation:
+        upgradeResultIn
+        0.7s
+        ease
+        1.2s
+        forwards;
+}
+
+@keyframes upgradeResultIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scene.active[data-scene="5"] .upgrade-result-bar span {
+    animation:
+        upgradeResultBar
+        1.2s
+        ease
+        1.6s
+        forwards;
+}
+
+@keyframes upgradeResultBar {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 87%;
+    }
+}
+
+.scene.active[data-scene="5"] .upgrade-status-line {
+    animation:
+        upgradeStatusIn
+        0.6s
+        ease
+        1.7s
+        forwards;
+}
+
+@keyframes upgradeStatusIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* =========================================
+   UPGRADE LAB — PRAWDZIWY EFEKT PISANIA
+========================================= */
+
+.scene[data-scene="5"] .upgrade-label span {
+    position: relative;
+    display: inline-block;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-shadow:
+        0 0 8px rgba(77, 163, 255, 0.35),
+        0 0 22px rgba(77, 163, 255, 0.15);
+    white-space: nowrap;
+    clip-path: inset(0 100% 0 0);
+    border-right: 2px solid transparent;
+}
+
+.scene.active[data-scene="5"] .upgrade-label span {
+    animation:
+        upgradeTextReveal 1.5s steps(11, end) 0.35s forwards,
+        upgradeCursorBlink 0.65s steps(1) 0.35s infinite;
+}
+
+@keyframes upgradeTextReveal {
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+@keyframes upgradeCursorBlink {
+
+    0%,
+    50% {
+        border-right-color: #4da3ff;
+    }
+
+    51%,
+    100% {
+        border-right-color: transparent;
+    }
+}
+
+/* =========================================
+   SCENA 03 — USUNIĘCIE STAREGO GPU ONLINE
+========================================= */
+
+.scene[data-scene="3"] .gpu-image::after {
+    content: none !important;
+    display: none !important;
+}
+/* =========================================================
+   SCENA 06 — SYSTEM DIAGNOSTICS / FINAL CONCEPT
+   ========================================================= */
+
+.scene[data-scene="6"] .diagnostics-image {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================================================
+   DELIKATNE TŁO TECHNICZNE
+   ========================================================= */
+
+.scene[data-scene="6"] .diagnostics-image::before {
+    content: "";
+    position: absolute;
+    inset: 8%;
+
+    background:
+        linear-gradient(
+            rgba(77,163,255,0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(77,163,255,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 42px 42px;
+
+    mask-image:
+        radial-gradient(
+            circle at center,
+            black 0%,
+            rgba(0,0,0,0.7) 45%,
+            transparent 78%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   GŁÓWNY SYSTEM CORE
+   ========================================================= */
+
+.scene[data-scene="6"] .system-scan {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+
+    border: none;
+    background: transparent;
+    box-shadow: none;
+
+    backdrop-filter: none;
+
+    overflow: visible;
+}
+
+
+/* =========================================================
+   CENTRALNY RDZEŃ
+   ========================================================= */
+
+.scene[data-scene="6"] .system-scan::before {
+    content: "SYSTEM\A CORE";
+
+    white-space: pre;
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 170px;
+    height: 170px;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    border:
+        1px solid rgba(77,163,255,0.45);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(77,163,255,0.10),
+            rgba(5,7,10,0.15) 55%,
+            transparent 70%
+        );
+
+    color: #4da3ff;
+
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    line-height: 1.7;
+
+    text-shadow:
+        0 0 12px rgba(77,163,255,0.5),
+        0 0 30px rgba(77,163,255,0.15);
+
+    box-shadow:
+        0 0 40px rgba(77,163,255,0.08),
+        inset 0 0 30px rgba(77,163,255,0.05);
+
+    z-index: 3;
+
+    animation:
+        corePulse 3s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   ZEWNĘTRZNY PIERŚCIEŃ
+   ========================================================= */
+
+.scene[data-scene="6"] .system-scan::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 270px;
+    height: 270px;
+
+    transform: translate(-50%, -50%);
+
+    border:
+        1px solid rgba(77,163,255,0.10);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 20px rgba(77,163,255,0.012),
+        0 0 0 50px rgba(77,163,255,0.008);
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   ŚRODKOWY PIERŚCIEŃ — ANIMOWANY
+   ========================================================= */
+
+.scene[data-scene="6"] .scan-footer {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 215px;
+    height: 215px;
+
+    transform: translate(-50%, -50%);
+
+    margin: 0;
+    padding: 0;
+
+    border:
+        1px dashed rgba(77,163,255,0.18);
+
+    border-radius: 50%;
+
+    color: transparent;
+
+    box-shadow: none;
+
+    z-index: 2;
+
+    animation:
+        coreRotate 18s linear infinite;
+}
+
+
+/* =========================================================
+   STATUS W ŚRODKU
+   ========================================================= */
+
+.scene[data-scene="6"] .scan-footer::after {
+    content: "ONLINE";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -38px;
+
+    transform: translateX(-50%);
+
+    color: #39ff14;
+
+    font-size: 8px;
+    letter-spacing: 3px;
+
+    text-shadow:
+        0 0 8px rgba(57,255,20,0.7);
+}
+
+
+/* =========================================================
+   MODUŁY
+   ========================================================= */
+
+.scene[data-scene="6"] .scan-item {
+    position: absolute;
+
+    width: 145px;
+    height: auto;
+
+    padding: 8px 12px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+
+    border: none;
+
+    background: transparent;
+
+    opacity: 0;
+
+    transform: translateY(10px);
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   POZYCJE MODUŁÓW
+   ========================================================= */
+
+.scene[data-scene="6"] .scan-item:nth-child(3) {
+    left: 4%;
+    top: 24%;
+}
+
+.scene[data-scene="6"] .scan-item:nth-child(4) {
+    left: 2%;
+    top: 49%;
+}
+
+.scene[data-scene="6"] .scan-item:nth-child(5) {
+    left: 12%;
+    bottom: 17%;
+}
+
+.scene[data-scene="6"] .scan-item:nth-child(6) {
+    right: 4%;
+    top: 30%;
+}
+
+.scene[data-scene="6"] .scan-item:nth-child(7) {
+    right: 8%;
+    bottom: 20%;
+}
+
+
+/* =========================================================
+   NUMERY
+   ========================================================= */
+
+.scene[data-scene="6"] .scan-item::before {
+    content: "";
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #4da3ff;
+
+    box-shadow:
+        0 0 10px rgba(77,163,255,0.7);
+}
+
+
+/* =========================================================
+   NAZWY
+   ========================================================= */
+
+.scene[data-scene="6"] .scan-item > span:first-child {
+    color: #666;
+
+    font-size: 8px;
+    letter-spacing: 3px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   WARTOŚCI
+   ========================================================= */
+
+.scene[data-scene="6"] .scan-value {
+    color: #4da3ff;
+
+    font-size: 13px;
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   TEMPERATURE — ZIELONA
+   ========================================================= */
+
+.scene[data-scene="6"] .scan-item:nth-child(7) .scan-value {
+    color: #39ff14;
+
+    text-shadow:
+        0 0 8px rgba(57,255,20,0.45);
+}
+
+
+/* =========================================================
+   LINIE ŁĄCZĄCE Z RDZENIEM
+   ========================================================= */
+
+.scene[data-scene="6"] .scan-item::after {
+    content: "";
+
+    position: absolute;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(77,163,255,0.05),
+            rgba(77,163,255,0.4)
+        );
+
+    transform-origin: left center;
+
+    pointer-events: none;
+}
+
+
+/* LEWA GÓRA */
+
+.scene[data-scene="6"] .scan-item:nth-child(3)::after {
+    left: 100%;
+    top: 50%;
+    width: 145px;
+    transform: rotate(14deg);
+}
+
+
+/* LEWA ŚRODKOWA */
+
+.scene[data-scene="6"] .scan-item:nth-child(4)::after {
+    left: 100%;
+    top: 50%;
+    width: 135px;
+    transform: rotate(0deg);
+}
+
+
+/* LEWA DÓŁ */
+
+.scene[data-scene="6"] .scan-item:nth-child(5)::after {
+    left: 100%;
+    top: 50%;
+    width: 105px;
+    transform: rotate(-18deg);
+}
+
+
+/* PRAWA GÓRA */
+
+.scene[data-scene="6"] .scan-item:nth-child(6)::after {
+    right: 100%;
+    top: 50%;
+    width: 130px;
+
+    transform-origin: right center;
+    transform: rotate(-12deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(77,163,255,0.4),
+            rgba(77,163,255,0.05)
+        );
+}
+
+
+/* PRAWA DÓŁ */
+
+.scene[data-scene="6"] .scan-item:nth-child(7)::after {
+    right: 100%;
+    top: 50%;
+    width: 120px;
+
+    transform-origin: right center;
+    transform: rotate(16deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(77,163,255,0.4),
+            rgba(77,163,255,0.05)
+        );
+}
+
+
+/* =========================================================
+   HEADER — MAŁY STATUS
+   ========================================================= */
+
+.scene[data-scene="6"] .scan-header {
+    position: absolute;
+
+    top: 7%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 60%;
+
+    margin: 0;
+
+    font-size: 8px;
+
+    color: #555;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================================
+   UKRYWAMY STARE ELEMENTY
+   ========================================================= */
+
+.scene[data-scene="6"] .scan-line {
+    display: none;
+}
+
+
+/* =========================================================
+   ANIMACJE MODUŁÓW
+   ========================================================= */
+
+.scene.active[data-scene="6"] .scan-item:nth-child(3) {
+    animation:
+        diagnosticModule 0.6s ease 0.4s forwards;
+}
+
+.scene.active[data-scene="6"] .scan-item:nth-child(4) {
+    animation:
+        diagnosticModule 0.6s ease 0.6s forwards;
+}
+
+.scene.active[data-scene="6"] .scan-item:nth-child(5) {
+    animation:
+        diagnosticModule 0.6s ease 0.8s forwards;
+}
+
+.scene.active[data-scene="6"] .scan-item:nth-child(6) {
+    animation:
+        diagnosticModule 0.6s ease 1s forwards;
+}
+
+.scene.active[data-scene="6"] .scan-item:nth-child(7) {
+    animation:
+        diagnosticModule 0.6s ease 1.2s forwards;
+}
+
+
+@keyframes diagnosticModule {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes corePulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 40px rgba(77,163,255,0.06),
+            inset 0 0 30px rgba(77,163,255,0.04);
+    }
+
+    50% {
+        box-shadow:
+            0 0 65px rgba(77,163,255,0.13),
+            inset 0 0 35px rgba(77,163,255,0.08);
+    }
+
+}
+
+
+@keyframes coreRotate {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+
+}
+/* =========================================================
+   SCENA 06 — ZAGĘSZCZENIE SYSTEMU
+   ========================================================= */
+
+.scene[data-scene="6"] .system-scan {
+    transform: scale(1.12);
+    transform-origin: center center;
+}
+
+
+/* CENTRALNY RDZEŃ WIĘKSZY */
+
+.scene[data-scene="6"] .system-scan::before {
+    width: 195px;
+    height: 195px;
+}
+
+
+/* PIERŚCIEŃ BLIŻEJ RDZENIA */
+
+.scene[data-scene="6"] .system-scan::after {
+    width: 285px;
+    height: 285px;
+}
+
+
+/* =========================================================
+   MODUŁY — BLIŻEJ ŚRODKA
+   ========================================================= */
+
+.scene[data-scene="6"] .scan-item:nth-child(3) {
+    left: 11%;
+    top: 27%;
+}
+
+.scene[data-scene="6"] .scan-item:nth-child(4) {
+    left: 8%;
+    top: 47%;
+}
+
+.scene[data-scene="6"] .scan-item:nth-child(5) {
+    left: 16%;
+    bottom: 21%;
+}
+
+.scene[data-scene="6"] .scan-item:nth-child(6) {
+    right: 11%;
+    top: 30%;
+}
+
+.scene[data-scene="6"] .scan-item:nth-child(7) {
+    right: 14%;
+    bottom: 23%;
+}
+
+
+/* =========================================================
+   WIĘKSZE MODUŁY
+   ========================================================= */
+
+.scene[data-scene="6"] .scan-item {
+    width: 175px;
+    padding: 10px 14px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(77,163,255,0.025),
+            rgba(5,7,10,0.18)
+        );
+}
+
+
+/* =========================================================
+   LINIE — KRÓTSZE, ALE WYRAŹNIEJSZE
+   ========================================================= */
+
+.scene[data-scene="6"] .scan-item:nth-child(3)::after {
+    width: 105px;
+}
+
+.scene[data-scene="6"] .scan-item:nth-child(4)::after {
+    width: 90px;
+}
+
+.scene[data-scene="6"] .scan-item:nth-child(5)::after {
+    width: 75px;
+}
+
+.scene[data-scene="6"] .scan-item:nth-child(6)::after {
+    width: 95px;
+}
+
+.scene[data-scene="6"] .scan-item:nth-child(7)::after {
+    width: 85px;
+}
+
+
+/* =========================================================
+   DODATKOWE PUNKTY POŁĄCZEŃ
+   ========================================================= */
+
+.scene[data-scene="6"] .scan-item::before {
+    position: relative;
+    z-index: 3;
+
+    width: 6px;
+    height: 6px;
+}
+
+
+/* =========================================================
+   CENTRALNE PUNKTY
+   ========================================================= */
+
+.scene[data-scene="6"] .system-scan .scan-footer::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 7px;
+    height: 7px;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: #4da3ff;
+
+    box-shadow:
+        0 0 10px rgba(77,163,255,0.9),
+        0 0 25px rgba(77,163,255,0.5);
+}
+
+
+/* =========================================================
+   DODATKOWE PIERŚCIENIE
+   ========================================================= */
+
+.scene[data-scene="6"] .system-scan .scan-footer {
+    box-shadow:
+        0 0 0 30px rgba(77,163,255,0.012),
+        0 0 0 48px rgba(77,163,255,0.006);
+}
+
+
+/* =========================================================
+   GÓRNY ELEMENT — BLIŻEJ SYSTEMU
+   ========================================================= */
+
+.scene[data-scene="6"] .scan-header {
+    top: 10%;
+    width: 65%;
+}
+
+
+/* =========================================================
+   DELIKATNE DODATKOWE LINIE TŁA
+   ========================================================= */
+
+.scene[data-scene="6"] .diagnostics-image::after {
+    content: "";
+
+    position: absolute;
+
+    left: 14%;
+    right: 14%;
+    top: 18%;
+    bottom: 18%;
+
+    border-top:
+        1px solid rgba(77,163,255,0.035);
+
+    border-bottom:
+        1px solid rgba(77,163,255,0.035);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   DELIKATNY GLOW ZA CAŁYM SYSTEMEM
+   ========================================================= */
+
+.scene[data-scene="6"] .diagnostics-image {
+    isolation: isolate;
+}
+
+.scene[data-scene="6"] .diagnostics-image::before {
+    filter: blur(0);
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(77,163,255,0.055),
+            transparent 42%
+        ),
+
+        linear-gradient(
+            rgba(77,163,255,0.025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(77,163,255,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        auto,
+        42px 42px,
+        42px 42px;
+}
+/* =========================================
+   SCENA 05 — LEPSZA CZYTELNOŚĆ PARAMETRÓW
+   ========================================= */
+
+.scene[data-scene="5"] .upgrade-card-top {
+    color: #8a8f98;
+    font-size: 9px;
+    letter-spacing: 2.5px;
+}
+
+.scene[data-scene="5"] .upgrade-card-top span {
+    color: #4da3ff;
+    text-shadow:
+        0 0 8px rgba(77,163,255,0.25);
+}
+
+.scene[data-scene="5"] .upgrade-card-top small {
+    color: #777c85;
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+
+/* CAPACITY / STORAGE OPTIMIZATION itd. */
+
+.scene[data-scene="5"] .upgrade-card-bottom {
+    color: #777c85;
+    font-size: 8px;
+    letter-spacing: 1.8px;
+}
+
+.scene[data-scene="5"] .upgrade-card-bottom span {
+    color: #858b95;
+}
+
+
+/* Wartości po prawej */
+
+.scene[data-scene="5"] .upgrade-card-bottom strong {
+    color: #4da3ff;
+    font-size: 9px;
+    letter-spacing: 1.2px;
+
+    text-shadow:
+        0 0 8px rgba(77,163,255,0.2);
+}
+
+
+/* CPU — nadal zielony */
+
+.scene[data-scene="5"] .upgrade-card-cpu .upgrade-card-bottom strong {
+    color: #39ff14;
+
+    text-shadow:
+        0 0 8px rgba(57,255,20,0.35);
+}
+
+
+/* lekko jaśniejsza linia oddzielająca */
+
+.scene[data-scene="5"] .upgrade-card-line {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(77,163,255,0.55),
+            rgba(77,163,255,0.08),
+            transparent
+        );
+}
+/* =========================================
+   SCENA 06 — GPU / BŁĄD KRYTYCZNY
+   ========================================= */
+
+.scene[data-scene="6"] .gpu-error {
+    position: absolute;
+}
+
+.scene[data-scene="6"] .gpu-error small {
+    display: block;
+    margin-top: 3px;
+
+    color: #ff3030;
+    font-size: 8px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 6px rgba(255,48,48,0.8),
+        0 0 14px rgba(255,48,48,0.4);
+
+    animation: criticalErrorBlink 1s steps(2, end) infinite;
+}
+
+@keyframes criticalErrorBlink {
+    0%,
+    45% {
+        opacity: 1;
+    }
+
+    46%,
+    70% {
+        opacity: 0.25;
+    }
+
+    71%,
+    100% {
+        opacity: 1;
+    }
+}
+/* =========================================
+   SCENA 06 — STATUS SKANOWANIA
+   ========================================= */
+
+.scene[data-scene="6"] .scan-analyzing {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.scene[data-scene="6"] .scan-complete {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.scene[data-scene="6"] .scan-value {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.scene[data-scene="6"] .scan-value.scan-error {
+    color: #ff3030 !important;
+
+    text-shadow:
+        0 0 6px rgba(255,48,48,0.9),
+        0 0 14px rgba(255,48,48,0.5);
+
+    animation: criticalScanError 0.8s steps(2, end) infinite;
+}
+
+@keyframes criticalScanError {
+
+    0%,
+    45% {
+        opacity: 1;
+    }
+
+    46%,
+    70% {
+        opacity: 0.25;
+    }
+
+    71%,
+    100% {
+        opacity: 1;
+    }
+}
+/* =========================================
+   SCENA 02 — ANALIZA PROCESORA
+   ========================================= */
+
+.scene[data-scene="2"] .cpu-analysis {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+/* ZDJĘCIE CPU */
+
+.scene[data-scene="2"] .cpu-photo {
+    position: absolute;
+    width: 72%;
+    height: 72%;
+    object-fit: contain;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    opacity: 0.9;
+    z-index: 2;
+
+    filter:
+        contrast(1.08)
+        brightness(0.82);
+
+}
+
+
+/* DELIKATNA SIATKA */
+
+.scene[data-scene="2"] .cpu-grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(77,163,255,0.045) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(77,163,255,0.045) 1px,
+            transparent 1px
+        );
+
+    background-size: 45px 45px;
+
+    mask-image:
+        radial-gradient(
+            circle at center,
+            black 0%,
+            transparent 70%
+        );
+
+    z-index: 1;
+}
+
+
+/* OKRĄG ANALIZY */
+
+.scene[data-scene="2"] .cpu-ring {
+    position: absolute;
+
+    width: 330px;
+    height: 330px;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border: 1px solid rgba(77,163,255,0.45);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 25px rgba(77,163,255,0.08),
+        inset 0 0 25px rgba(77,163,255,0.04);
+
+    z-index: 4;
+
+    animation: cpuRingPulse 3s ease-in-out infinite;
+}
+
+
+.scene[data-scene="2"] .cpu-ring::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 12px;
+
+    border: 1px dashed rgba(77,163,255,0.2);
+    border-radius: 50%;
+
+    animation: cpuRingRotate 18s linear infinite;
+}
+
+
+@keyframes cpuRingPulse {
+
+    0%,
+    100% {
+        opacity: 0.55;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes cpuRingRotate {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ŚRODEK */
+
+.scene[data-scene="2"] .cpu-center {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 175px;
+
+    text-align: center;
+
+    z-index: 6;
+}
+
+
+/* STATUS */
+
+.scene[data-scene="2"] .cpu-status {
+    color: #8d949e;
+
+    font-size: 8px;
+    letter-spacing: 2px;
+    line-height: 1.8;
+}
+
+
+.scene[data-scene="2"] .cpu-status strong {
+    display: block;
+
+    color: #39ff14;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 8px rgba(57,255,20,0.5);
+}
+
+
+/* TAKTOWANIE */
+
+.scene[data-scene="2"] .cpu-speed {
+    margin-top: 8px;
+
+    color: white;
+
+    font-size: 30px;
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 0 18px rgba(77,163,255,0.3);
+}
+
+
+.scene[data-scene="2"] .cpu-speed span {
+    color: #4da3ff;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+
+/* LINIE TECHNICZNE */
+
+.scene[data-scene="2"] .cpu-line {
+    position: absolute;
+
+    width: 180px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(77,163,255,0.05),
+            rgba(77,163,255,0.65)
+        );
+
+    z-index: 7;
+}
+
+
+.scene[data-scene="2"] .cpu-line span {
+    position: absolute;
+
+    top: -8px;
+
+    color: #9ca3af;
+
+    font-size: 8px;
+    letter-spacing: 2px;
+
+    white-space: nowrap;
+}
+
+
+/* RDZENIE */
+
+.scene[data-scene="2"] .cpu-line-core {
+    top: 30%;
+    left: 8%;
+}
+
+
+.scene[data-scene="2"] .cpu-line-core span {
+    left: 0;
+}
+
+
+/* CACHE */
+
+.scene[data-scene="2"] .cpu-line-cache {
+    top: 67%;
+    left: 4%;
+}
+
+
+.scene[data-scene="2"] .cpu-line-cache span {
+    left: 0;
+}
+
+
+/* TEMPERATURA */
+
+.scene[data-scene="2"] .cpu-line-temp {
+    top: 32%;
+    right: 5%;
+
+    transform: scaleX(-1);
+}
+
+
+.scene[data-scene="2"] .cpu-line-temp span {
+    transform: scaleX(-1);
+    left: 0;
+}
+
+
+/* TAKTOWANIE */
+
+.scene[data-scene="2"] .cpu-line-clock {
+    top: 68%;
+    right: 7%;
+
+    transform: scaleX(-1);
+}
+
+
+.scene[data-scene="2"] .cpu-line-clock span {
+    transform: scaleX(-1);
+    left: 0;
+}
+
+
+/* PUNKT NA KOŃCU LINII */
+
+.scene[data-scene="2"] .cpu-line::after {
+    content: "";
+
+    position: absolute;
+
+    right: -4px;
+    top: -2px;
+
+    width: 5px;
+    height: 5px;
+
+    background: #4da3ff;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 8px rgba(77,163,255,0.8);
+}
+
+
+/* SKANER */
+
+.scene[data-scene="2"] .cpu-scan {
+    position: absolute;
+
+    left: 20%;
+    right: 20%;
+
+    top: 30%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(77,163,255,0.8),
+            transparent
+        );
+
+    box-shadow:
+        0 0 10px rgba(77,163,255,0.4);
+
+    z-index: 8;
+
+    animation: cpuScan 4s ease-in-out infinite;
+}
+
+
+@keyframes cpuScan {
+
+    0% {
+        top: 30%;
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    50% {
+        top: 70%;
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 0.8;
+    }
+
+    100% {
+        top: 30%;
+        opacity: 0;
+    }
+}
+
+
+/* TECHNICZNY OPIS */
+
+.scene[data-scene="2"] .cpu-tech-label {
+    position: absolute;
+
+    right: 7%;
+    bottom: 9%;
+
+    color: #4da3ff;
+
+    font-size: 9px;
+    letter-spacing: 3px;
+
+    text-align: right;
+
+    z-index: 8;
+}
+
+
+.scene[data-scene="2"] .cpu-tech-label span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #666d77;
+
+    font-size: 7px;
+    letter-spacing: 2px;
+}
+/* =========================================
+   SCENA 02 — CZYTELNOŚĆ NAPISÓW
+   ========================================= */
+
+.scene[data-scene="2"] .cpu-line span,
+.scene[data-scene="2"] .cpu-tech-label,
+.scene[data-scene="2"] .cpu-status,
+.scene[data-scene="2"] .cpu-speed {
+    text-shadow:
+        0 2px 8px rgba(0,0,0,0.95),
+        0 0 10px rgba(0,0,0,0.9);
+}
+
+
+/* Etykiety przy liniach */
+
+.scene[data-scene="2"] .cpu-line span {
+    padding: 4px 7px;
+
+    color: #d7dce3;
+
+    background: rgba(5,7,10,0.72);
+
+    border-left: 1px solid rgba(77,163,255,0.7);
+
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+
+/* Mocniejszy punkt na końcu linii */
+
+.scene[data-scene="2"] .cpu-line::after {
+    width: 6px;
+    height: 6px;
+
+    background: #4da3ff;
+
+    box-shadow:
+        0 0 5px #4da3ff,
+        0 0 12px rgba(77,163,255,0.8);
+}
+
+
+/* Centralny status */
+
+.scene[data-scene="2"] .cpu-status {
+    padding: 5px 10px;
+
+    background: rgba(5,7,10,0.68);
+
+    border: 1px solid rgba(77,163,255,0.15);
+}
+
+
+/* Taktowanie */
+
+.scene[data-scene="2"] .cpu-speed {
+    padding: 3px 10px;
+
+    background: rgba(5,7,10,0.55);
+}
+
+
+/* Opis techniczny */
+
+.scene[data-scene="2"] .cpu-tech-label {
+    padding: 7px 10px;
+
+    background: rgba(5,7,10,0.7);
+
+    border-right: 1px solid rgba(77,163,255,0.5);
+}
+/* =========================================
+   SCENA 02 — DYNAMIKA ANALIZY CPU
+   ========================================= */
+
+.scene[data-scene="2"] .cpu-line {
+    animation: cpuLinePulse 3s ease-in-out infinite;
+}
+
+.scene[data-scene="2"] .cpu-line-core {
+    animation-delay: 0s;
+}
+
+.scene[data-scene="2"] .cpu-line-cache {
+    animation-delay: 0.7s;
+}
+
+.scene[data-scene="2"] .cpu-line-temp {
+    animation-delay: 1.4s;
+}
+
+.scene[data-scene="2"] .cpu-line-clock {
+    animation-delay: 2.1s;
+}
+
+
+@keyframes cpuLinePulse {
+
+    0%,
+    100% {
+        opacity: 0.55;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* Delikatne życie centralnego parametru */
+
+.scene[data-scene="2"] .cpu-speed {
+    animation: cpuSpeedPulse 3s ease-in-out infinite;
+}
+
+
+@keyframes cpuSpeedPulse {
+
+    0%,
+    100% {
+        text-shadow:
+            0 0 10px rgba(77,163,255,0.2);
+    }
+
+    50% {
+        text-shadow:
+            0 0 22px rgba(77,163,255,0.45);
+    }
+}
+
+
+/* Zielony status delikatnie pulsuje */
+
+.scene[data-scene="2"] .cpu-status strong {
+    animation: cpuStatusPulse 2.5s ease-in-out infinite;
+}
+
+
+@keyframes cpuStatusPulse {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+/* =========================================
+   SCENA 02 — ANIMACJA WEJŚCIA
+   ========================================= */
+
+.scene[data-scene="2"] .cpu-photo,
+.scene[data-scene="2"] .cpu-ring,
+.scene[data-scene="2"] .cpu-center,
+.scene[data-scene="2"] .cpu-line,
+.scene[data-scene="2"] .cpu-tech-label {
+    opacity: 0;
+}
+
+
+/* Zdjęcie */
+
+.scene[data-scene="2"].active .cpu-photo {
+    animation: cpuPhotoIn 0.9s ease forwards;
+    animation-delay: 0.15s;
+}
+
+
+@keyframes cpuPhotoIn {
+
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.96);
+    }
+
+    to {
+        opacity: 0.9;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+
+/* Pierścień */
+
+.scene[data-scene="2"].active .cpu-ring {
+    animation:
+        cpuRingIn 0.8s ease forwards,
+        cpuRingPulse 3s ease-in-out 1s infinite;
+}
+
+
+@keyframes cpuRingIn {
+
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+
+/* Środek */
+
+.scene[data-scene="2"].active .cpu-center {
+    animation: cpuCenterIn 0.7s ease forwards;
+    animation-delay: 0.8s;
+}
+
+
+@keyframes cpuCenterIn {
+
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+
+/* Linie */
+
+.scene[data-scene="2"].active .cpu-line {
+    animation:
+        cpuLineIn 0.6s ease forwards,
+        cpuLinePulse 3s ease-in-out 1.5s infinite;
+}
+
+
+.scene[data-scene="2"].active .cpu-line-core {
+    animation-delay: 1.1s, 1.7s;
+}
+
+.scene[data-scene="2"].active .cpu-line-cache {
+    animation-delay: 1.35s, 1.95s;
+}
+
+.scene[data-scene="2"].active .cpu-line-temp {
+    animation-delay: 1.6s, 2.2s;
+}
+
+.scene[data-scene="2"].active .cpu-line-clock {
+    animation-delay: 1.85s, 2.45s;
+}
+
+
+@keyframes cpuLineIn {
+
+    from {
+        opacity: 0;
+        width: 0;
+    }
+
+    to {
+        opacity: 1;
+        width: 180px;
+    }
+}
+
+
+/* Opis techniczny */
+
+.scene[data-scene="2"].active .cpu-tech-label {
+    animation: cpuTechIn 0.6s ease forwards;
+    animation-delay: 2.2s;
+}
+
+
+@keyframes cpuTechIn {
+
+    from {
+        opacity: 0;
+        transform: translateX(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* =========================================
+   NAPRAWA — SCENA 02 / IZOLACJA ELEMENTÓW
+   ========================================= */
+
+/* Wszystkie elementy Scene 02 zostają ograniczone
+   wyłącznie do obszaru analizy CPU */
+
+.scene[data-scene="2"] .cpu-analysis {
+    isolation: isolate;
+}
+
+
+/* Linie CPU */
+
+.scene[data-scene="2"] .cpu-analysis .cpu-line {
+    position: absolute;
+}
+
+
+/* Napisy przy liniach CPU */
+
+.scene[data-scene="2"] .cpu-analysis .cpu-line > span {
+    position: absolute;
+    display: block;
+
+    white-space: nowrap;
+
+    z-index: 10;
+}
+
+
+/* Techniczny podpis */
+
+.scene[data-scene="2"] .cpu-analysis .cpu-tech-label {
+    position: absolute;
+    z-index: 10;
+}
+
+
+/* Centralne dane */
+
+.scene[data-scene="2"] .cpu-analysis .cpu-center {
+    position: absolute;
+    z-index: 10;
+}
+
+
+/* Pierścień */
+
+.scene[data-scene="2"] .cpu-analysis .cpu-ring {
+    position: absolute;
+    z-index: 4;
+}
+
+
+/* Zdjęcie */
+
+.scene[data-scene="2"] .cpu-analysis .cpu-photo {
+    position: absolute;
+    z-index: 2;
+}
+
+
+/* Skaner */
+
+.scene[data-scene="2"] .cpu-analysis .cpu-scan {
+    position: absolute;
+    z-index: 8;
+}
+/* =========================================
+   OCHRONA GLOBALNEGO LICZNIKA SCEN
+   ========================================= */
+
+#sceneCounter {
+    position: fixed !important;
+    z-index: 1000 !important;
+
+    top: auto !important;
+    left: auto !important;
+    right: 30px !important;
+    bottom: 25px !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    transform: none !important;
+}
+/* =========================================
+   LINK PORTFOLIO
+========================================= */
+
+.portfolio-button {
+
+    position: fixed;
+
+    top: 28px;
+    left: 210px;
+    height: 38px;
+    box-sizing: border-box;
+    z-index: 900;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 11px 17px;
+
+    border: 1px solid rgba(77, 163, 255, 0.45);
+
+    background: rgba(5, 7, 10, 0.78);
+
+    color: #d7dce3;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.portfolio-button::after {
+
+    content: "→";
+
+    color: #4da3ff;
+
+    font-size: 14px;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+.portfolio-button:hover {
+
+    color: #ffffff;
+
+    border-color: #4da3ff;
+
+    background: rgba(77, 163, 255, 0.08);
+
+    box-shadow:
+        0 0 18px rgba(77, 163, 255, 0.12);
+
+    transform: translateY(-1px);
+}
+
+
+.portfolio-button:hover::after {
+
+    transform: translateX(4px);
+}
+/* =========================================
+   INTERAKTYWNY CENNIK
+========================================= */
+
+.price-button {
+
+    position: fixed;
+
+    top: 28px;
+    left: 355px;
+    height: 38px;
+    box-sizing: border-box;
+    z-index: 900;
+
+    padding: 11px 17px;
+
+    border:
+        1px solid
+        rgba(77,163,255,0.45);
+
+    background:
+        rgba(5,7,10,0.78);
+
+    color: #d7dce3;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.price-button:hover {
+
+    color: #ffffff;
+
+    border-color:
+        #4da3ff;
+
+    background:
+        rgba(77,163,255,0.08);
+
+    box-shadow:
+        0 0 18px
+        rgba(77,163,255,0.12);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================
+   OVERLAY
+========================================= */
+
+.price-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9998;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 35px;
+
+    background:
+        rgba(3,4,8,0.94);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+
+.price-overlay.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+body.price-open {
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   PANEL
+========================================= */
+
+.price-panel {
+
+    position: relative;
+
+    width: min(1050px, 94vw);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 48px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(14,12,21,0.98),
+            rgba(6,7,11,0.98)
+        );
+
+    box-shadow:
+        0 30px 100px
+        rgba(0,0,0,0.65);
+}
+
+
+/* =========================================
+   CLOSE
+========================================= */
+
+.price-close {
+
+    position: absolute;
+
+    top: 20px;
+    right: 22px;
+
+    width: 40px;
+    height: 40px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.03);
+
+    color: #ffffff;
+
+    font-size: 27px;
+    font-weight: 300;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.price-close:hover {
+
+    background:
+        rgba(255,255,255,0.08);
+
+    border-color:
+        rgba(255,255,255,0.3);
+
+    transform:
+        scale(1.05);
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.price-label {
+
+    color: #4da3ff;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 18px;
+}
+
+
+.price-header h2 {
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 42px;
+
+    line-height: 1;
+
+    font-weight: 500;
+
+    letter-spacing: -2px;
+}
+
+
+.price-header h2 span {
+
+    color: #4da3ff;
+}
+
+
+.price-header p {
+
+    max-width: 500px;
+
+    margin-top: 15px;
+
+    color: #777985;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   KATEGORIE
+========================================= */
+
+.price-categories {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 35px;
+
+    padding-bottom: 15px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.07);
+}
+
+
+.price-category {
+
+    padding: 10px 14px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    background:
+        rgba(255,255,255,0.02);
+
+    color: #777985;
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    letter-spacing: 1.7px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.price-category:hover {
+
+    color: #ffffff;
+
+    border-color:
+        rgba(77,163,255,0.35);
+}
+
+
+.price-category.active {
+
+    color: #ffffff;
+
+    border-color:
+        rgba(77,163,255,0.65);
+
+    background:
+        rgba(77,163,255,0.09);
+}
+
+
+/* =========================================
+   LISTA USŁUG
+========================================= */
+
+.price-list {
+
+    display: none;
+
+    margin-top: 16px;
+}
+
+
+.price-list.active {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 8px;
+}
+
+
+.price-item {
+
+    min-width: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 18px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.06);
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,0.018);
+
+    color: #ffffff;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.price-item:hover {
+
+    border-color:
+        rgba(77,163,255,0.4);
+
+    background:
+        rgba(77,163,255,0.035);
+
+    transform:
+        translateY(-1px);
+}
+
+
+.price-item.selected {
+
+    border-color:
+        #4da3ff;
+
+    background:
+        rgba(77,163,255,0.08);
+}
+
+
+.price-item span {
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+
+.price-item strong {
+
+    color: #eeeeef;
+
+    font-size: 11px;
+
+    font-weight: 500;
+}
+
+
+.price-item small {
+
+    color: #686a74;
+
+    font-size: 8px;
+
+    line-height: 1.5;
+}
+
+
+.price-item b {
+
+    flex-shrink: 0;
+
+    color: #4da3ff;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   PODSUMOWANIE
+========================================= */
+
+.price-summary {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr auto;
+
+    gap: 25px;
+
+    margin-top: 18px;
+
+    padding: 22px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,0.02);
+}
+
+
+.summary-label {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: #666873;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+}
+
+
+.selected-services {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+}
+
+
+.empty-summary {
+
+    color: #555762;
+
+    font-size: 9px;
+}
+
+
+.selected-service {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 7px 9px;
+
+    border:
+        1px solid
+        rgba(77,163,255,0.2);
+
+    background:
+        rgba(77,163,255,0.04);
+
+    color: #a7a9b2;
+
+    font-size: 8px;
+}
+
+
+.selected-service b {
+
+    color: #4da3ff;
+
+    font-weight: 500;
+}
+
+
+.summary-right {
+
+    min-width: 150px;
+
+    padding-left: 25px;
+
+    border-left:
+        1px solid
+        rgba(255,255,255,0.07);
+}
+
+
+#priceTotal {
+
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 27px;
+
+    font-weight: 500;
+
+    letter-spacing: -1px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.price-footer {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-top: 20px;
+}
+
+
+.price-footer > span {
+
+    color: #555762;
+
+    font-size: 8px;
+}
+
+
+#priceContact {
+
+    padding: 12px 17px;
+
+    border:
+        1px solid
+        rgba(77,163,255,0.5);
+
+    background:
+        rgba(77,163,255,0.07);
+
+    color: #ffffff;
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+#priceContact span {
+
+    margin-left: 8px;
+
+    color: #4da3ff;
+
+    font-size: 13px;
+}
+
+
+#priceContact:hover {
+
+    background:
+        rgba(77,163,255,0.15);
+
+    border-color:
+        #4da3ff;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .price-button {
+
+        right: 25px;
+
+        top: 75px;
+    }
+
+
+    .price-panel {
+
+        padding: 30px 20px;
+    }
+
+
+    .price-header h2 {
+
+        font-size: 32px;
+    }
+
+
+    .price-list.active {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .price-summary {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .summary-right {
+
+        padding-left: 0;
+
+        padding-top: 18px;
+
+        border-left: none;
+
+        border-top:
+            1px solid
+            rgba(255,255,255,0.07);
+    }
+
+
+    .price-footer {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+}
+/* =========================================
+   FACEBOOK — PRZYCISK
+========================================= */
+
+.facebook-button {
+    position: fixed;
+
+    top: 28px;
+    left: 477px;
+
+    z-index: 100;
+
+    height: 38px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 0 16px;
+
+    border: 1px solid rgba(77, 163, 255, 0.45);
+    border-radius: 6px;
+
+    background: rgba(5, 7, 10, 0.75);
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.facebook-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 16px;
+    height: 16px;
+
+    color: #4da3ff;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.facebook-button:hover {
+    background: #4da3ff;
+    color: #05070a;
+
+    border-color: #4da3ff;
+
+    box-shadow:
+        0 0 25px
+        rgba(77, 163, 255, 0.35);
+}
+
+.facebook-button:hover .facebook-icon {
+    color: #05070a;
+}
+
+/* =========================================
+   GÓRNE KAFELKI — WSPÓLNY UKŁAD
+========================================= */
+
+@media (max-width: 800px) {
+
+    .portfolio-button,
+    .price-button,
+    .facebook-button {
+        top: 70px !important;
+        height: 34px !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+    }
+
+    .portfolio-button {
+        left: 8px !important;
+        right: auto !important;
+        width: 94px !important;
+        padding: 0 6px !important;
+        justify-content: center !important;
+        gap: 5px !important;
+        font-size: 8px !important;
+        letter-spacing: 1px !important;
+    }
+
+    .price-button {
+        left: 106px !important;
+        right: auto !important;
+        width: 94px !important;
+        padding: 0 6px !important;
+        font-size: 8px !important;
+        letter-spacing: 1px !important;
+    }
+
+    .facebook-button {
+        left: 204px !important;
+        right: auto !important;
+        width: 108px !important;
+        padding: 0 5px !important;
+        gap: 5px !important;
+        font-size: 8px !important;
+        letter-spacing: 1px !important;
+    }
+}
+
+@media (max-width: 330px) {
+
+    .portfolio-button,
+    .price-button,
+    .facebook-button {
+        top: 66px !important;
+        height: 32px !important;
+    }
+
+    .portfolio-button {
+        left: 5px !important;
+        width: 88px !important;
+    }
+
+    .price-button {
+        left: 97px !important;
+        width: 88px !important;
+    }
+
+    .facebook-button {
+        left: 189px !important;
+        width: 102px !important;
+    }
+}
+
+/* =========================================================
+   HANBYTECH — FINAL MOBILE LAYOUT
+   NIE RUSZA DESKTOPU
+========================================================= */
+
+@media (max-width: 800px) {
+
+    /* -----------------------------------------------------
+       PODSTAWA
+    ----------------------------------------------------- */
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    body {
+        min-height: 100dvh;
+    }
+
+    .story {
+        width: 100%;
+        height: 100dvh;
+        overflow: hidden;
+    }
+
+    .scene {
+        width: 100%;
+        height: 100dvh;
+        min-height: 100dvh;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    /* -----------------------------------------------------
+       LOGO
+    ----------------------------------------------------- */
+
+    .site-logo {
+        position: fixed;
+        top: 18px;
+        left: 18px;
+        z-index: 1000;
+        width: 120px;
+        max-width: 32vw;
+    }
+
+    .site-logo img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    /* -----------------------------------------------------
+       GÓRNE PRZYCISKI
+    ----------------------------------------------------- */
+
+    .facebook-button,
+    .portfolio-button,
+    .price-button {
+        position: fixed;
+        z-index: 1000;
+        box-sizing: border-box;
+        white-space: nowrap;
+    }
+
+    .facebook-button {
+        top: 18px;
+        right: 18px;
+        height: 34px;
+        padding: 0 10px;
+        gap: 6px;
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .facebook-icon {
+        font-size: 12px;
+    }
+
+    .facebook-arrow {
+        font-size: 10px;
+    }
+
+    .portfolio-button {
+        top: 62px;
+        right: 18px;
+        height: 34px;
+        padding: 0 13px;
+        font-size: 8px;
+        letter-spacing: 1.5px;
+    }
+
+    .price-button {
+        top: 106px;
+        right: 18px;
+        height: 34px;
+        padding: 0 13px;
+        font-size: 8px;
+        letter-spacing: 1.5px;
+    }
+
+    /* -----------------------------------------------------
+       STAŁY KONTAKT
+    ----------------------------------------------------- */
+
+    .fixed-contact {
+        left: 18px;
+        bottom: 18px;
+        z-index: 1000;
+        font-size: 8px;
+        letter-spacing: 1.5px;
+    }
+
+    /* -----------------------------------------------------
+       TREŚĆ SCEN
+    ----------------------------------------------------- */
+
+    .scene-content {
+        position: absolute;
+        z-index: 20;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        max-width: none;
+        padding: 0 24px;
+        box-sizing: border-box;
+        transform: translateY(-50%);
+        text-align: center;
+    }
+
+    .scene-content .category {
+        margin-bottom: 14px;
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    .scene-content h1,
+    .scene-content h2 {
+        margin: 0 0 18px;
+        font-size: clamp(34px, 10vw, 54px);
+        line-height: 0.98;
+        letter-spacing: -1.5px;
+    }
+
+    .scene-content p {
+        width: 100%;
+        max-width: 390px;
+        margin: 0 auto 20px;
+        font-size: 11px;
+        line-height: 1.65;
+    }
+
+    .scene-content .info {
+        font-size: 7px;
+        line-height: 1.8;
+        letter-spacing: 1.5px;
+    }
+
+    /* -----------------------------------------------------
+       SCENA 01
+    ----------------------------------------------------- */
+
+    .scene[data-scene="1"] .scene-content {
+        top: 48%;
+    }
+
+    .scene[data-scene="1"] .scene-content h1 {
+        font-size: clamp(38px, 11vw, 58px);
+    }
+
+    .scene[data-scene="1"] .scene-content p {
+        max-width: 330px;
+    }
+
+    .scene[data-scene="1"] .hero-image {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+    }
+
+    .scene[data-scene="1"] .hero-photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .scene[data-scene="1"] .hero-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            linear-gradient(
+                to bottom,
+                rgba(5,7,10,0.55) 0%,
+                rgba(5,7,10,0.42) 35%,
+                rgba(5,7,10,0.72) 100%
+            );
+    }
+
+    .contact-button {
+        margin-top: 8px;
+        min-height: 44px;
+        padding: 0 22px;
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    /* -----------------------------------------------------
+       SCENA 02 — CPU
+    ----------------------------------------------------- */
+
+    .scene[data-scene="2"] .scene-content,
+    .scene[data-scene="3"] .scene-content,
+    .scene[data-scene="4"] .scene-content,
+    .scene[data-scene="5"] .scene-content,
+    .scene[data-scene="6"] .scene-content {
+        top: 42%;
+    }
+
+    .cpu-analysis,
+    .gpu-image,
+    .cleaning-process,
+    .upgrade-showcase,
+    .diagnostics-image {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .cpu-photo,
+    .gpu-photo,
+    .cleaning-background {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .cpu-photo {
+        opacity: 0.18;
+        object-position: center;
+    }
+
+    .cpu-analysis::after,
+    .gpu-image::after,
+    .cleaning-process::after,
+    .diagnostics-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            linear-gradient(
+                to bottom,
+                rgba(5,7,10,0.82),
+                rgba(5,7,10,0.58) 45%,
+                rgba(5,7,10,0.92)
+            );
+    }
+
+    .cpu-grid,
+    .cpu-ring,
+    .cpu-line,
+    .cpu-center,
+    .cpu-scan,
+    .cpu-tech-label {
+        transform: scale(0.72);
+        transform-origin: center;
+    }
+
+    .cpu-center {
+        top: 62%;
+    }
+
+    .cpu-tech-label {
+        bottom: 13%;
+        font-size: 8px;
+    }
+
+    /* -----------------------------------------------------
+       SCENA 03 — GPU
+    ----------------------------------------------------- */
+
+    .gpu-photo {
+        opacity: 0.24;
+        object-position: center;
+    }
+
+    .gpu-showcase {
+        position: absolute;
+        left: 50%;
+        top: 67%;
+        width: min(84vw, 360px);
+        transform: translate(-50%, -50%) scale(0.82);
+        transform-origin: center;
+    }
+
+    .gpu-data {
+        font-size: 9px;
+    }
+
+    .gpu-data strong {
+        font-size: 13px;
+    }
+
+    .gpu-performance {
+        width: 100%;
+    }
+
+    /* -----------------------------------------------------
+       SCENA 04 — CZYSZCZENIE
+    ----------------------------------------------------- */
+
+    .cleaning-background {
+        opacity: 0.16;
+        object-position: center;
+    }
+
+    .cleaning-panel {
+        position: absolute;
+        top: 67%;
+        left: 50%;
+        width: min(86vw, 370px);
+        max-height: 52vh;
+        overflow: hidden;
+        transform: translate(-50%, -50%) scale(0.82);
+        transform-origin: center;
+    }
+
+    .cleaning-header {
+        font-size: 8px;
+    }
+
+    .cleaning-step {
+        font-size: 8px;
+    }
+
+    .temperature-values strong {
+        font-size: 18px;
+    }
+
+    /* -----------------------------------------------------
+       SCENA 05 — UPGRADE
+    ----------------------------------------------------- */
+
+    .upgrade-showcase {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0 18px 12%;
+        box-sizing: border-box;
+    }
+
+    .upgrade-label {
+        width: min(88vw, 380px);
+        margin-bottom: 12px;
+    }
+
+    .upgrade-cards {
+        width: min(88vw, 380px);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .upgrade-card {
+        min-height: 100px;
+        padding: 10px;
+    }
+
+    .upgrade-card-name {
+        font-size: 18px;
+    }
+
+    .upgrade-card-top small,
+    .upgrade-card-bottom {
+        font-size: 7px;
+    }
+
+    .upgrade-result {
+        width: min(88vw, 380px);
+        margin-top: 12px;
+    }
+
+    .upgrade-status-line {
+        width: min(88vw, 380px);
+        font-size: 7px;
+        margin-top: 10px;
+    }
+
+    /* -----------------------------------------------------
+       SCENA 06 — DIAGNOSTYKA
+    ----------------------------------------------------- */
+
+    .diagnostics-image {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding-bottom: 9%;
+        box-sizing: border-box;
+    }
+
+    .system-scan {
+        width: min(86vw, 380px);
+        transform: scale(0.88);
+        transform-origin: bottom center;
+    }
+
+    .scan-item {
+        min-height: 35px;
+        font-size: 8px;
+    }
+
+    .scan-value {
+        font-size: 7px;
+    }
+
+    .scan-footer {
+        font-size: 7px;
+    }
+
+    /* -----------------------------------------------------
+       SCENA 07 — KONTAKT
+    ----------------------------------------------------- */
+
+    .contact-content {
+        top: 25%;
+        transform: translateY(0);
+    }
+
+    .contact-details {
+        margin-top: 18px;
+    }
+
+    .contact-details span {
+        font-size: 8px;
+    }
+
+    .contact-details a {
+        font-size: 12px;
+        word-break: break-word;
+    }
+
+    .contact-image {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 7%;
+        width: 100%;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+    }
+
+    .contact-form {
+        width: min(86vw, 380px);
+        box-sizing: border-box;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        box-sizing: border-box;
+        width: 100%;
+        font-size: 10px;
+    }
+
+    .contact-form textarea {
+        min-height: 75px;
+    }
+
+    .contact-form button {
+        min-height: 42px;
+        font-size: 9px;
+    }
+
+    /* -----------------------------------------------------
+       NAWIGACJA
+    ----------------------------------------------------- */
+
+    .navigation {
+        position: fixed;
+        right: 16px;
+        bottom: 18px;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .navigation button {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    /* -----------------------------------------------------
+       WSKAŹNIK SCEN
+    ----------------------------------------------------- */
+
+    .scroll-indicator {
+        left: 50%;
+        bottom: 18px;
+        transform: translateX(-50%);
+        z-index: 900;
+    }
+
+    .scroll-line {
+        display: none;
+    }
+
+    .scroll-indicator #sceneCounter {
+        font-size: 8px;
+        letter-spacing: 1.5px;
+    }
+
+    /* -----------------------------------------------------
+       CENNIK — PANEL
+    ----------------------------------------------------- */
+
+    .price-overlay {
+        padding: 12px;
+        box-sizing: border-box;
+    }
+
+    .price-panel {
+        width: 100%;
+        max-width: 100%;
+        height: calc(100dvh - 24px);
+        max-height: none;
+        overflow-y: auto;
+        overflow-x: hidden;
+        box-sizing: border-box;
+        padding: 24px 18px 18px;
+        border-radius: 12px;
+    }
+
+    .price-close {
+        top: 12px;
+        right: 12px;
+        width: 32px;
+        height: 32px;
+        font-size: 22px;
+    }
+
+    .price-header {
+        padding-right: 35px;
+    }
+
+    .price-header h2 {
+        font-size: 28px;
+        line-height: 1.05;
+    }
+
+    .price-header p {
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+    .price-categories {
+        display: flex;
+        width: 100%;
+        overflow-x: auto;
+        gap: 7px;
+        padding-bottom: 5px;
+        scrollbar-width: none;
+    }
+
+    .price-categories::-webkit-scrollbar {
+        display: none;
+    }
+
+    .price-category {
+        flex: 0 0 auto;
+        min-height: 36px;
+        padding: 0 12px;
+        font-size: 8px;
+    }
+
+    .price-item {
+        width: 100%;
+        min-height: 62px;
+        padding: 12px 10px;
+        box-sizing: border-box;
+        gap: 10px;
+    }
+
+    .price-item span {
+        min-width: 0;
+    }
+
+    .price-item strong {
+        display: block;
+        font-size: 10px;
+        line-height: 1.25;
+    }
+
+    .price-item small {
+        display: block;
+        margin-top: 3px;
+        font-size: 8px;
+        line-height: 1.3;
+    }
+
+    .price-item b {
+        flex: 0 0 auto;
+        font-size: 9px;
+        white-space: nowrap;
+    }
+
+    .price-summary {
+        gap: 14px;
+        flex-direction: column;
+    }
+
+    .summary-right {
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .price-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .price-footer button {
+        width: 100%;
+    }
+
+    /* -----------------------------------------------------
+       CENNIK — FORMULARZ
+    ----------------------------------------------------- */
+
+    .price-inquiry-header h3 {
+        font-size: 26px;
+    }
+
+    .price-inquiry-header p {
+        font-size: 10px;
+    }
+
+    .price-inquiry-selected {
+        padding: 12px;
+    }
+
+    .price-inquiry-actions {
+        flex-direction: column;
+    }
+
+    .price-inquiry-actions button {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   MAŁE TELEFONY
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .site-logo {
+        width: 105px;
+        top: 15px;
+        left: 15px;
+    }
+
+    .facebook-button,
+    .portfolio-button,
+    .price-button {
+        right: 15px;
+    }
+
+    .facebook-button {
+        top: 15px;
+    }
+
+    .portfolio-button {
+        top: 57px;
+    }
+
+    .price-button {
+        top: 99px;
+    }
+
+    .scene-content {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .scene-content h1,
+    .scene-content h2 {
+        font-size: 32px;
+    }
+
+    .scene-content p {
+        font-size: 10px;
+    }
+
+    .upgrade-cards {
+        gap: 5px;
+    }
+
+    .upgrade-card {
+        min-height: 90px;
+        padding: 8px;
+    }
+
+    .upgrade-card-name {
+        font-size: 16px;
+    }
+
+    .cleaning-panel,
+    .system-scan {
+        transform: translate(-50%, -50%) scale(0.75);
+    }
+
+    .contact-form {
+        width: calc(100vw - 36px);
+    }
+}
