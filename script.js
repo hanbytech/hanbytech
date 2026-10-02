@@ -130,6 +130,174 @@ window.addEventListener("keydown", (event) => {
 });
 
 
+/* =========================================
+   SWIPE — TELEFON
+========================================= */
+
+let touchStartY = 0;
+let touchStartX = 0;
+let swipeLocked = false;
+
+const SWIPE_THRESHOLD = 60;
+const SWIPE_LOCK_TIME = 700;
+
+
+/*
+   START SWIPE
+*/
+
+window.addEventListener(
+    "touchstart",
+    (event) => {
+
+        /*
+           Nie uruchamiamy swipe podczas
+           klikania przycisków, linków ani formularza.
+        */
+
+        if (
+            event.target.closest(
+                "button, a, input, textarea, select, label"
+            )
+        ) {
+            return;
+        }
+
+        if (!event.touches.length) {
+            return;
+        }
+
+        touchStartY =
+            event.touches[0].clientY;
+
+        touchStartX =
+            event.touches[0].clientX;
+
+    },
+    { passive: true }
+);
+
+
+/*
+   KONIEC SWIPE
+*/
+
+window.addEventListener(
+    "touchend",
+    (event) => {
+
+        /*
+           Jeżeli otwarte jest portfolio,
+           swipe głównej strony nie działa.
+        */
+
+        if (
+            portfolioPage &&
+            portfolioPage.classList.contains("active")
+        ) {
+            return;
+        }
+
+        /*
+           Blokada przed wielokrotnym
+           przeskoczeniem scen.
+        */
+
+        if (swipeLocked) {
+            return;
+        }
+
+        /*
+           Nie traktujemy kliknięć jako swipe.
+        */
+
+        if (
+            event.target.closest(
+                "button, a, input, textarea, select, label"
+            )
+        ) {
+            return;
+        }
+
+        if (!event.changedTouches.length) {
+            return;
+        }
+
+        const touchEndY =
+            event.changedTouches[0].clientY;
+
+        const touchEndX =
+            event.changedTouches[0].clientX;
+
+
+        const differenceY =
+            touchStartY - touchEndY;
+
+        const differenceX =
+            touchStartX - touchEndX;
+
+
+        /*
+           Musimy przesunąć minimum 60 px.
+           Jeżeli ruch jest bardziej poziomy
+           niż pionowy — ignorujemy go.
+        */
+
+        if (
+            Math.abs(differenceY) < SWIPE_THRESHOLD ||
+            Math.abs(differenceY) <= Math.abs(differenceX)
+        ) {
+            return;
+        }
+
+
+        /*
+           BLOKADA
+        */
+
+        swipeLocked = true;
+
+
+        /*
+           PALec W GÓRĘ
+           = następna scena
+        */
+
+        if (differenceY > 0) {
+
+            changeScene(1);
+
+        }
+
+
+        /*
+           PALec W DÓŁ
+           = poprzednia scena
+        */
+
+        else {
+
+            changeScene(-1);
+
+        }
+
+
+        /*
+           Po 700 ms można wykonać
+           kolejny swipe.
+        */
+
+        setTimeout(() => {
+
+            swipeLocked = false;
+
+        }, SWIPE_LOCK_TIME);
+
+    },
+    { passive: true }
+);
+
+
 if (nextButton) {
     nextButton.addEventListener("click", () => {
         changeScene(1);
@@ -247,6 +415,8 @@ if (scenes.length > 0) {
     });
 
 }
+
+
 /* =========================================
    PORTFOLIO
 ========================================= */
@@ -283,6 +453,8 @@ if (portfolioBack && portfolioPage) {
     });
 
 }
+
+
 /* =========================================
    PORTFOLIO — REALIZACJE
 ========================================= */
