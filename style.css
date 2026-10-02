@@ -246,52 +246,7 @@ h2 span {
    TELEFON
 ========================= */
 
-@media (max-width: 800px) {
 
-    .scene {
-        grid-template-columns: 1fr;
-    }
-
-    .scene-content {
-        justify-content: flex-end;
-        padding: 0 30px 100px;
-    }
-
-    .scene-number {
-        top: 30px;
-        left: 30px;
-    }
-
-    h1,
-    h2 {
-        font-size: 48px;
-    }
-
-    .scene-content p {
-        font-size: 14px;
-    }
-
-    .scene-visual {
-        position: absolute;
-        inset: 0;
-        opacity: 0.25;
-    }
-
-    .placeholder {
-        width: 100%;
-        height: 100%;
-        border: none;
-    }
-
-    .navigation {
-        right: 20px;
-    }
-
-    .scroll-indicator {
-        right: 20px;
-        bottom: 20px;
-    }
-}
 
 /* =========================
    LOGO
@@ -319,17 +274,7 @@ h2 span {
 
 /* LOGO — TELEFON */
 
-@media (max-width: 800px) {
 
-    .site-logo {
-        top: 20px;
-        left: 25px;
-    }
-
-    .site-logo img {
-        width: 120px;
-    }
-}
 
 /* =========================
    HERO IMAGE
@@ -4341,62 +4286,7 @@ body.price-open {
    MOBILE
 ========================================= */
 
-@media (max-width: 800px) {
 
-    .price-button {
-
-        right: 25px;
-
-        top: 75px;
-    }
-
-
-    .price-panel {
-
-        padding: 30px 20px;
-    }
-
-
-    .price-header h2 {
-
-        font-size: 32px;
-    }
-
-
-    .price-list.active {
-
-        grid-template-columns: 1fr;
-    }
-
-
-    .price-summary {
-
-        grid-template-columns: 1fr;
-    }
-
-
-    .summary-right {
-
-        padding-left: 0;
-
-        padding-top: 18px;
-
-        border-left: none;
-
-        border-top:
-            1px solid
-            rgba(255,255,255,0.07);
-    }
-
-
-    .price-footer {
-
-        align-items: flex-start;
-
-        flex-direction: column;
-    }
-
-}
 /* =========================================
    FACEBOOK — PRZYCISK
 ========================================= */
@@ -4472,89 +4362,36 @@ body.price-open {
    GÓRNE KAFELKI — WSPÓLNY UKŁAD
 ========================================= */
 
-@media (max-width: 800px) {
 
-    .portfolio-button,
-    .price-button,
-    .facebook-button {
-        top: 70px !important;
-        height: 34px !important;
-        box-sizing: border-box !important;
-        margin: 0 !important;
-    }
 
-    .portfolio-button {
-        left: 8px !important;
-        right: auto !important;
-        width: 94px !important;
-        padding: 0 6px !important;
-        justify-content: center !important;
-        gap: 5px !important;
-        font-size: 8px !important;
-        letter-spacing: 1px !important;
-    }
 
-    .price-button {
-        left: 106px !important;
-        right: auto !important;
-        width: 94px !important;
-        padding: 0 6px !important;
-        font-size: 8px !important;
-        letter-spacing: 1px !important;
-    }
-
-    .facebook-button {
-        left: 204px !important;
-        right: auto !important;
-        width: 108px !important;
-        padding: 0 5px !important;
-        gap: 5px !important;
-        font-size: 8px !important;
-        letter-spacing: 1px !important;
-    }
-}
-
-@media (max-width: 330px) {
-
-    .portfolio-button,
-    .price-button,
-    .facebook-button {
-        top: 66px !important;
-        height: 32px !important;
-    }
-
-    .portfolio-button {
-        left: 5px !important;
-        width: 88px !important;
-    }
-
-    .price-button {
-        left: 97px !important;
-        width: 88px !important;
-    }
-
-    .facebook-button {
-        left: 189px !important;
-        width: 102px !important;
-    }
-}
 
 /* =========================================================
    HANBYTECH — FINAL MOBILE LAYOUT
    NIE RUSZA DESKTOPU
 ========================================================= */
 
-@media (max-width: 800px) {
 
-    /* -----------------------------------------------------
-       PODSTAWA
-    ----------------------------------------------------- */
+
+
+/* =========================================================
+   MAŁE TELEFONY
+========================================================= */
+
+/* =========================================================
+   HANBYTECH — NOWY UKŁAD MOBILNY
+   Desktop pozostaje bez zmian.
+========================================================= */
+
+@media (max-width: 800px) {
 
     html,
     body {
         width: 100%;
+        height: 100%;
+        min-width: 0;
         max-width: 100%;
-        overflow-x: hidden;
+        overflow: hidden;
     }
 
     body {
@@ -4562,705 +4399,871 @@ body.price-open {
     }
 
     .story {
-        width: 100%;
-        height: 100dvh;
-        overflow: hidden;
-    }
-
-    .scene {
+        position: relative;
         width: 100%;
         height: 100dvh;
         min-height: 100dvh;
         overflow: hidden;
-        box-sizing: border-box;
     }
 
-    /* -----------------------------------------------------
-       LOGO
-    ----------------------------------------------------- */
+    .scene {
+        display: block;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100dvh;
+        min-height: 100dvh;
+        overflow: hidden;
+        transform: scale(1.01);
+    }
+
+    .scene.active {
+        transform: scale(1);
+    }
+
+    .scene > .scene-visual {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        overflow: hidden;
+    }
 
     .site-logo {
-        position: fixed;
-        top: 18px;
-        left: 18px;
-        z-index: 1000;
-        width: 120px;
-        max-width: 32vw;
+        position: fixed !important;
+        top: 14px !important;
+        left: 16px !important;
+        width: 108px !important;
+        max-width: 29vw !important;
+        z-index: 2000 !important;
     }
 
     .site-logo img {
+        width: 100% !important;
+        height: auto !important;
         display: block;
-        width: 100%;
-        height: auto;
     }
 
-    /* -----------------------------------------------------
-       GÓRNE PRZYCISKI
-    ----------------------------------------------------- */
-
-    .facebook-button,
     .portfolio-button,
-    .price-button {
-        position: fixed;
-        z-index: 1000;
-        box-sizing: border-box;
-        white-space: nowrap;
-    }
-
+    .price-button,
     .facebook-button {
-        top: 18px;
-        right: 18px;
-        height: 34px;
-        padding: 0 10px;
-        gap: 6px;
-        font-size: 8px;
-        letter-spacing: 1px;
-    }
-
-    .facebook-icon {
-        font-size: 12px;
-    }
-
-    .facebook-arrow {
-        font-size: 10px;
+        position: fixed !important;
+        top: 14px !important;
+        right: auto !important;
+        left: auto !important;
+        z-index: 2000 !important;
+        height: 32px !important;
+        min-height: 32px !important;
+        box-sizing: border-box !important;
+        padding: 0 8px !important;
+        margin: 0 !important;
+        white-space: nowrap !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 7px !important;
+        letter-spacing: 1px !important;
     }
 
     .portfolio-button {
-        top: 62px;
-        right: 18px;
-        height: 34px;
-        padding: 0 13px;
-        font-size: 8px;
-        letter-spacing: 1.5px;
+        right: 126px !important;
+        width: 82px !important;
     }
 
     .price-button {
-        top: 106px;
-        right: 18px;
-        height: 34px;
-        padding: 0 13px;
-        font-size: 8px;
-        letter-spacing: 1.5px;
+        right: 60px !important;
+        width: 58px !important;
     }
 
-    /* -----------------------------------------------------
-       STAŁY KONTAKT
-    ----------------------------------------------------- */
-
-    .fixed-contact {
-        left: 18px;
-        bottom: 18px;
-        z-index: 1000;
-        font-size: 8px;
-        letter-spacing: 1.5px;
+    .facebook-button {
+        right: 8px !important;
+        width: 48px !important;
+        gap: 3px !important;
     }
 
-    /* -----------------------------------------------------
-       TREŚĆ SCEN
-    ----------------------------------------------------- */
+    .facebook-icon {
+        width: auto !important;
+        height: auto !important;
+        font-size: 10px !important;
+    }
+
+    .facebook-arrow {
+        font-size: 8px !important;
+    }
 
     .scene-content {
-        position: absolute;
-        z-index: 20;
-        top: 50%;
-        left: 0;
-        width: 100%;
-        max-width: none;
-        padding: 0 24px;
-        box-sizing: border-box;
-        transform: translateY(-50%);
-        text-align: center;
+        position: absolute !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: 50% !important;
+        width: 100% !important;
+        max-width: none !important;
+        height: auto !important;
+        padding: 0 22px !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        transform: translateY(-50%) !important;
+        text-align: center !important;
+        z-index: 100 !important;
     }
 
     .scene-content .category {
-        margin-bottom: 14px;
-        font-size: 8px;
-        letter-spacing: 2px;
+        margin: 0 0 12px !important;
+        font-size: 7px !important;
+        line-height: 1.3 !important;
+        letter-spacing: 2.5px !important;
     }
 
     .scene-content h1,
     .scene-content h2 {
-        margin: 0 0 18px;
-        font-size: clamp(34px, 10vw, 54px);
-        line-height: 0.98;
-        letter-spacing: -1.5px;
+        width: 100% !important;
+        margin: 0 !important;
+        font-size: clamp(30px, 9.5vw, 48px) !important;
+        line-height: 0.98 !important;
+        letter-spacing: -1.5px !important;
     }
 
     .scene-content p {
-        width: 100%;
-        max-width: 390px;
-        margin: 0 auto 20px;
-        font-size: 11px;
-        line-height: 1.65;
+        width: 100% !important;
+        max-width: 340px !important;
+        margin: 16px auto 0 !important;
+        font-size: 10px !important;
+        line-height: 1.55 !important;
     }
 
     .scene-content .info {
-        font-size: 7px;
-        line-height: 1.8;
-        letter-spacing: 1.5px;
+        width: 100% !important;
+        max-width: 340px !important;
+        margin: 14px auto 0 !important;
+        font-size: 6.5px !important;
+        line-height: 1.8 !important;
+        letter-spacing: 1.5px !important;
     }
 
-    /* -----------------------------------------------------
-       SCENA 01
-    ----------------------------------------------------- */
-
-    .scene[data-scene="1"] .scene-content {
-        top: 48%;
-    }
-
-    .scene[data-scene="1"] .scene-content h1 {
-        font-size: clamp(38px, 11vw, 58px);
-    }
-
-    .scene[data-scene="1"] .scene-content p {
-        max-width: 330px;
-    }
+    /* SCENA 1 */
 
     .scene[data-scene="1"] .hero-image {
-        position: absolute;
-        inset: 0;
-        z-index: 1;
+        opacity: 1 !important;
     }
 
-    .scene[data-scene="1"] .hero-photo {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
+    .scene[data-scene="1"] .hero-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        transform: none !important;
     }
 
     .scene[data-scene="1"] .hero-image::after {
-        content: "";
-        position: absolute;
-        inset: 0;
+        content: "" !important;
+        position: absolute !important;
+        inset: 0 !important;
         background:
             linear-gradient(
                 to bottom,
-                rgba(5,7,10,0.55) 0%,
-                rgba(5,7,10,0.42) 35%,
-                rgba(5,7,10,0.72) 100%
-            );
+                rgba(5,7,10,0.62) 0%,
+                rgba(5,7,10,0.34) 35%,
+                rgba(5,7,10,0.86) 100%
+            ) !important;
+    }
+
+    .scene[data-scene="1"] .scene-content {
+        top: 55% !important;
+    }
+
+    .scene[data-scene="1"] .scene-content h1 {
+        font-size: clamp(34px, 10.5vw, 52px) !important;
+    }
+
+    .scene[data-scene="1"] .scene-content p {
+        max-width: 315px !important;
     }
 
     .contact-button {
-        margin-top: 8px;
-        min-height: 44px;
-        padding: 0 22px;
-        font-size: 9px;
-        letter-spacing: 1.5px;
+        min-height: 42px !important;
+        margin-top: 18px !important;
+        padding: 0 20px !important;
+        font-size: 8px !important;
+        letter-spacing: 1.5px !important;
     }
 
-    /* -----------------------------------------------------
-       SCENA 02 — CPU
-    ----------------------------------------------------- */
+    /* SCENA 2 — CPU */
 
-    .scene[data-scene="2"] .scene-content,
-    .scene[data-scene="3"] .scene-content,
-    .scene[data-scene="4"] .scene-content,
-    .scene[data-scene="5"] .scene-content,
-    .scene[data-scene="6"] .scene-content {
-        top: 42%;
+    .scene[data-scene="2"] .scene-content {
+        top: 22% !important;
+        transform: translateY(0) !important;
     }
 
-    .cpu-analysis,
-    .gpu-image,
-    .cleaning-process,
-    .upgrade-showcase,
-    .diagnostics-image {
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        pointer-events: none;
+    .scene[data-scene="2"] .cpu-analysis {
+        opacity: 1 !important;
     }
 
-    .cpu-photo,
-    .gpu-photo,
-    .cleaning-background {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    .scene[data-scene="2"] .cpu-photo {
+        width: 62% !important;
+        height: 62% !important;
+        opacity: 0.35 !important;
     }
 
-    .cpu-photo {
-        opacity: 0.18;
-        object-position: center;
+    .scene[data-scene="2"] .cpu-ring {
+        width: min(68vw, 285px) !important;
+        height: min(68vw, 285px) !important;
     }
 
-    .cpu-analysis::after,
-    .gpu-image::after,
-    .cleaning-process::after,
-    .diagnostics-image::after {
-        content: "";
-        position: absolute;
-        inset: 0;
+    .scene[data-scene="2"] .cpu-center {
+        width: 140px !important;
+    }
+
+    .scene[data-scene="2"] .cpu-speed {
+        font-size: 25px !important;
+    }
+
+    .scene[data-scene="2"] .cpu-line {
+        width: 95px !important;
+    }
+
+    .scene[data-scene="2"] .cpu-line span {
+        font-size: 6px !important;
+        letter-spacing: 1px !important;
+    }
+
+    .scene[data-scene="2"] .cpu-line-core {
+        top: 37% !important;
+        left: 3% !important;
+    }
+
+    .scene[data-scene="2"] .cpu-line-cache {
+        top: 43% !important;
+        right: 3% !important;
+    }
+
+    .scene[data-scene="2"] .cpu-line-temp {
+        bottom: 32% !important;
+        left: 3% !important;
+    }
+
+    .scene[data-scene="2"] .cpu-line-clock {
+        bottom: 25% !important;
+        right: 3% !important;
+    }
+
+    .scene[data-scene="2"] .cpu-tech-label {
+        bottom: 9% !important;
+        font-size: 6px !important;
+        letter-spacing: 1.5px !important;
+        text-align: center !important;
+    }
+
+    /* SCENA 3 — GPU */
+
+    .scene[data-scene="3"] .scene-content {
+        top: 20% !important;
+        transform: translateY(0) !important;
+    }
+
+    .scene[data-scene="3"] .gpu-image {
+        opacity: 1 !important;
+    }
+
+    .scene[data-scene="3"] .gpu-photo {
+        width: 78% !important;
+        height: 78% !important;
+        top: 55% !important;
+        left: 50% !important;
+    }
+
+    .scene[data-scene="3"] .gpu-online {
+        top: 32% !important;
+        right: 5% !important;
+        padding: 6px 8px !important;
+        font-size: 6px !important;
+    }
+
+    .scene[data-scene="3"] .gpu-data {
+        padding: 6px 8px !important;
+        gap: 2px !important;
+    }
+
+    .scene[data-scene="3"] .gpu-data small {
+        font-size: 5px !important;
+        letter-spacing: 1px !important;
+    }
+
+    .scene[data-scene="3"] .gpu-data strong {
+        font-size: 9px !important;
+    }
+
+    .scene[data-scene="3"] .gpu-core {
+        top: 43% !important;
+        right: 4% !important;
+    }
+
+    .scene[data-scene="3"] .gpu-memory {
+        top: 53% !important;
+        right: 4% !important;
+    }
+
+    .scene[data-scene="3"] .gpu-temp {
+        bottom: 27% !important;
+        right: 4% !important;
+    }
+
+    .scene[data-scene="3"] .gpu-performance {
+        left: 8% !important;
+        right: 8% !important;
+        bottom: 8% !important;
+        padding: 9px 10px !important;
+    }
+
+    .scene[data-scene="3"] .gpu-performance-header {
+        font-size: 6px !important;
+    }
+
+    .scene[data-scene="3"] .gpu-performance-header strong {
+        font-size: 8px !important;
+    }
+
+    /* SCENA 4 — CZYSZCZENIE */
+
+    .scene[data-scene="4"] .scene-content {
+        top: 17% !important;
+        transform: translateY(0) !important;
+    }
+
+    .scene[data-scene="4"] .cleaning-background {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        opacity: 0.24 !important;
+        transform: none !important;
+    }
+
+    .scene[data-scene="4"] .cleaning-overlay {
         background:
             linear-gradient(
                 to bottom,
-                rgba(5,7,10,0.82),
-                rgba(5,7,10,0.58) 45%,
-                rgba(5,7,10,0.92)
-            );
+                rgba(5,7,10,0.65),
+                rgba(5,7,10,0.25) 45%,
+                rgba(5,7,10,0.9)
+            ) !important;
     }
 
-    .cpu-grid,
-    .cpu-ring,
-    .cpu-line,
-    .cpu-center,
-    .cpu-scan,
-    .cpu-tech-label {
-        transform: scale(0.72);
-        transform-origin: center;
-    }
-
-    .cpu-center {
-        top: 62%;
-    }
-
-    .cpu-tech-label {
-        bottom: 13%;
-        font-size: 8px;
-    }
-
-    /* -----------------------------------------------------
-       SCENA 03 — GPU
-    ----------------------------------------------------- */
-
-    .gpu-photo {
-        opacity: 0.24;
-        object-position: center;
-    }
-
-    .gpu-showcase {
-        position: absolute;
-        left: 50%;
-        top: 67%;
-        width: min(84vw, 360px);
-        transform: translate(-50%, -50%) scale(0.82);
-        transform-origin: center;
-    }
-
-    .gpu-data {
-        font-size: 9px;
-    }
-
-    .gpu-data strong {
-        font-size: 13px;
-    }
-
-    .gpu-performance {
-        width: 100%;
-    }
-
-    /* -----------------------------------------------------
-       SCENA 04 — CZYSZCZENIE
-    ----------------------------------------------------- */
-
-    .cleaning-background {
-        opacity: 0.16;
-        object-position: center;
-    }
-
-    .cleaning-panel {
-        position: absolute;
-        top: 67%;
-        left: 50%;
-        width: min(86vw, 370px);
-        max-height: 52vh;
-        overflow: hidden;
-        transform: translate(-50%, -50%) scale(0.82);
-        transform-origin: center;
+    .scene[data-scene="4"] .cleaning-panel {
+        position: absolute !important;
+        left: 50% !important;
+        top: 67% !important;
+        width: calc(100% - 36px) !important;
+        max-height: 43dvh !important;
+        padding: 16px !important;
+        box-sizing: border-box !important;
+        transform: translate(-50%, -50%) !important;
+        overflow: hidden !important;
     }
 
     .cleaning-header {
-        font-size: 8px;
+        font-size: 7px !important;
+        letter-spacing: 1.5px !important;
+    }
+
+    .cleaning-counter {
+        font-size: 6px !important;
+    }
+
+    .cleaning-progress {
+        margin-top: 12px !important;
+    }
+
+    .cleaning-steps {
+        margin-top: 10px !important;
     }
 
     .cleaning-step {
-        font-size: 8px;
+        gap: 8px !important;
+        padding: 7px 0 !important;
+        font-size: 6px !important;
+        letter-spacing: 1px !important;
+    }
+
+    .step-icon {
+        width: 12px !important;
+        font-size: 8px !important;
+    }
+
+    .cleaning-divider {
+        margin: 10px 0 !important;
+    }
+
+    .airflow-header,
+    .temperature-title {
+        font-size: 6px !important;
+        letter-spacing: 1px !important;
+    }
+
+    .temperature {
+        margin-top: 11px !important;
+    }
+
+    .temperature-values {
+        gap: 14px !important;
+    }
+
+    .temperature-values small {
+        font-size: 5px !important;
     }
 
     .temperature-values strong {
-        font-size: 18px;
+        font-size: 14px !important;
     }
 
-    /* -----------------------------------------------------
-       SCENA 05 — UPGRADE
-    ----------------------------------------------------- */
-
-    .upgrade-showcase {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
-        padding: 0 18px 12%;
-        box-sizing: border-box;
+    .temperature-arrow {
+        font-size: 13px !important;
     }
 
-    .upgrade-label {
-        width: min(88vw, 380px);
-        margin-bottom: 12px;
+    .cleaning-status {
+        gap: 6px !important;
+        margin-top: 12px !important;
+        padding-top: 10px !important;
+        font-size: 6px !important;
+        letter-spacing: 1px !important;
     }
 
-    .upgrade-cards {
-        width: min(88vw, 380px);
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
+    /* SCENA 5 — UPGRADE */
+
+    .scene[data-scene="5"] .scene-content {
+        top: 15% !important;
+        transform: translateY(0) !important;
     }
 
-    .upgrade-card {
-        min-height: 100px;
-        padding: 10px;
+    .scene[data-scene="5"] .upgrade-showcase {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        padding: 0 18px 7dvh !important;
+        display: flex !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+        box-sizing: border-box !important;
     }
 
-    .upgrade-card-name {
-        font-size: 18px;
+    .scene[data-scene="5"] .upgrade-label {
+        width: 100% !important;
+        margin-bottom: 10px !important;
+        font-size: 6px !important;
     }
 
-    .upgrade-card-top small,
-    .upgrade-card-bottom {
-        font-size: 7px;
+    .scene[data-scene="5"] .upgrade-label span {
+        font-size: 11px !important;
+        letter-spacing: 3px !important;
     }
 
-    .upgrade-result {
-        width: min(88vw, 380px);
-        margin-top: 12px;
+    .scene[data-scene="5"] .upgrade-cards {
+        width: 100% !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 6px !important;
     }
 
-    .upgrade-status-line {
-        width: min(88vw, 380px);
-        font-size: 7px;
-        margin-top: 10px;
+    .scene[data-scene="5"] .upgrade-card {
+        min-height: 82px !important;
+        padding: 9px !important;
     }
 
-    /* -----------------------------------------------------
-       SCENA 06 — DIAGNOSTYKA
-    ----------------------------------------------------- */
-
-    .diagnostics-image {
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-        padding-bottom: 9%;
-        box-sizing: border-box;
+    .scene[data-scene="5"] .upgrade-card-name {
+        margin-top: 12px !important;
+        font-size: 16px !important;
     }
 
-    .system-scan {
-        width: min(86vw, 380px);
-        transform: scale(0.88);
-        transform-origin: bottom center;
+    .scene[data-scene="5"] .upgrade-card-top {
+        font-size: 6px !important;
     }
 
-    .scan-item {
-        min-height: 35px;
-        font-size: 8px;
+    .scene[data-scene="5"] .upgrade-card-top small {
+        font-size: 5px !important;
     }
 
-    .scan-value {
-        font-size: 7px;
+    .scene[data-scene="5"] .upgrade-card-bottom {
+        left: 9px !important;
+        right: 9px !important;
+        bottom: 8px !important;
+        font-size: 5px !important;
     }
 
-    .scan-footer {
-        font-size: 7px;
+    .scene[data-scene="5"] .upgrade-card-bottom strong {
+        font-size: 6px !important;
     }
 
-    /* -----------------------------------------------------
-       SCENA 07 — KONTAKT
-    ----------------------------------------------------- */
-
-    .contact-content {
-        top: 25%;
-        transform: translateY(0);
+    .scene[data-scene="5"] .upgrade-result {
+        width: 100% !important;
+        margin-top: 10px !important;
+        padding: 10px 9px !important;
     }
 
-    .contact-details {
-        margin-top: 18px;
+    .scene[data-scene="5"] .upgrade-result-label {
+        font-size: 5px !important;
     }
 
-    .contact-details span {
-        font-size: 8px;
+    .scene[data-scene="5"] .upgrade-result-value strong {
+        font-size: 20px !important;
     }
 
-    .contact-details a {
-        font-size: 12px;
-        word-break: break-word;
+    .scene[data-scene="5"] .upgrade-result-value span {
+        font-size: 5px !important;
     }
 
-    .contact-image {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 7%;
-        width: 100%;
-        z-index: 10;
-        display: flex;
-        justify-content: center;
+    .scene[data-scene="5"] .upgrade-status-line {
+        width: 100% !important;
+        margin-top: 9px !important;
+        font-size: 5px !important;
     }
 
-    .contact-form {
-        width: min(86vw, 380px);
-        box-sizing: border-box;
+    /* SCENA 6 — DIAGNOSTYKA */
+
+    .scene[data-scene="6"] .scene-content {
+        top: 17% !important;
+        transform: translateY(0) !important;
     }
 
-    .contact-form input,
-    .contact-form textarea {
-        box-sizing: border-box;
-        width: 100%;
-        font-size: 10px;
+    .scene[data-scene="6"] .diagnostics-image {
+        display: block !important;
+        opacity: 1 !important;
     }
 
-    .contact-form textarea {
-        min-height: 75px;
+    .scene[data-scene="6"] .system-scan {
+        position: absolute !important;
+        left: 50% !important;
+        top: 66% !important;
+        width: calc(100% - 34px) !important;
+        height: 42dvh !important;
+        transform: translate(-50%, -50%) scale(0.9) !important;
+        transform-origin: center !important;
     }
 
-    .contact-form button {
-        min-height: 42px;
-        font-size: 9px;
+    .scene[data-scene="6"] .system-scan::before {
+        width: 145px !important;
+        height: 145px !important;
+        font-size: 10px !important;
     }
 
-    /* -----------------------------------------------------
-       NAWIGACJA
-    ----------------------------------------------------- */
+    .scene[data-scene="6"] .system-scan::after {
+        width: 215px !important;
+        height: 215px !important;
+    }
+
+    .scene[data-scene="6"] .scan-item {
+        width: 115px !important;
+        padding: 7px 9px !important;
+        font-size: 6px !important;
+    }
+
+    .scene[data-scene="6"] .scan-value {
+        font-size: 5px !important;
+    }
+
+    .scene[data-scene="6"] .scan-header {
+        width: 70% !important;
+        font-size: 6px !important;
+    }
+
+    .scene[data-scene="6"] .scan-footer {
+        font-size: 5px !important;
+    }
+
+    /* SCENA 7 — KONTAKT */
+
+    .scene[data-scene="7"] .contact-content {
+        top: 16% !important;
+        transform: translateY(0) !important;
+    }
+
+    .scene[data-scene="7"] .contact-details {
+        margin-top: 12px !important;
+        gap: 5px !important;
+    }
+
+    .scene[data-scene="7"] .contact-details span {
+        font-size: 6px !important;
+        letter-spacing: 1.5px !important;
+    }
+
+    .scene[data-scene="7"] .contact-details a {
+        font-size: 11px !important;
+        word-break: break-word !important;
+    }
+
+    .scene[data-scene="7"] .contact-image {
+        position: absolute !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: auto !important;
+        bottom: 5dvh !important;
+        width: 100% !important;
+        height: auto !important;
+        display: flex !important;
+        align-items: flex-end !important;
+        justify-content: center !important;
+        opacity: 1 !important;
+    }
+
+    .scene[data-scene="7"] .contact-form {
+        width: calc(100% - 34px) !important;
+        max-width: 400px !important;
+        padding: 18px !important;
+        gap: 9px !important;
+        box-sizing: border-box !important;
+    }
+
+    .scene[data-scene="7"] .contact-form input,
+    .scene[data-scene="7"] .contact-form textarea {
+        width: 100% !important;
+        padding: 10px 0 !important;
+        font-size: 9px !important;
+        box-sizing: border-box !important;
+    }
+
+    .scene[data-scene="7"] .contact-form textarea {
+        height: 65px !important;
+        min-height: 65px !important;
+    }
+
+    .scene[data-scene="7"] .contact-form button {
+        min-height: 38px !important;
+        padding: 10px !important;
+        font-size: 8px !important;
+    }
+
+    /* STAŁY KONTAKT */
+
+    .fixed-contact {
+        left: 14px !important;
+        bottom: 15px !important;
+        padding: 9px 13px !important;
+        font-size: 7px !important;
+        letter-spacing: 1.2px !important;
+        z-index: 1900 !important;
+    }
+
+    /* NAWIGACJA / LICZNIK */
 
     .navigation {
-        position: fixed;
-        right: 16px;
-        bottom: 18px;
-        z-index: 1000;
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
+        position: fixed !important;
+        right: 10px !important;
+        top: auto !important;
+        bottom: 12px !important;
+        z-index: 1900 !important;
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 4px !important;
+        transform: none !important;
     }
 
     .navigation button {
-        width: 30px;
-        height: 30px;
-        font-size: 12px;
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 10px !important;
     }
 
-    /* -----------------------------------------------------
-       WSKAŹNIK SCEN
-    ----------------------------------------------------- */
-
     .scroll-indicator {
-        left: 50%;
-        bottom: 18px;
-        transform: translateX(-50%);
-        z-index: 900;
+        position: fixed !important;
+        left: 50% !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: 17px !important;
+        z-index: 1800 !important;
+        transform: translateX(-50%) !important;
+        font-size: 7px !important;
     }
 
     .scroll-line {
-        display: none;
+        display: none !important;
     }
 
-    .scroll-indicator #sceneCounter {
-        font-size: 8px;
-        letter-spacing: 1.5px;
+    #sceneCounter {
+        position: static !important;
+        right: auto !important;
+        bottom: auto !important;
+        font-size: 7px !important;
+        letter-spacing: 1.5px !important;
     }
 
-    /* -----------------------------------------------------
-       CENNIK — PANEL
-    ----------------------------------------------------- */
+    /* CENNIK */
 
     .price-overlay {
-        padding: 12px;
-        box-sizing: border-box;
+        padding: 10px !important;
+        box-sizing: border-box !important;
+        align-items: center !important;
     }
 
     .price-panel {
-        width: 100%;
-        max-width: 100%;
-        height: calc(100dvh - 24px);
-        max-height: none;
-        overflow-y: auto;
-        overflow-x: hidden;
-        box-sizing: border-box;
-        padding: 24px 18px 18px;
-        border-radius: 12px;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: calc(100dvh - 20px) !important;
+        max-height: calc(100dvh - 20px) !important;
+        padding: 24px 14px 14px !important;
+        border-radius: 12px !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        box-sizing: border-box !important;
     }
 
     .price-close {
-        top: 12px;
-        right: 12px;
-        width: 32px;
-        height: 32px;
-        font-size: 22px;
+        top: 9px !important;
+        right: 9px !important;
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 21px !important;
     }
 
     .price-header {
-        padding-right: 35px;
+        padding-right: 34px !important;
     }
 
     .price-header h2 {
-        font-size: 28px;
-        line-height: 1.05;
+        font-size: 27px !important;
+        line-height: 1 !important;
     }
 
     .price-header p {
-        font-size: 10px;
-        line-height: 1.5;
+        font-size: 9px !important;
+        line-height: 1.45 !important;
     }
 
     .price-categories {
-        display: flex;
-        width: 100%;
-        overflow-x: auto;
-        gap: 7px;
-        padding-bottom: 5px;
-        scrollbar-width: none;
+        width: 100% !important;
+        display: flex !important;
+        overflow-x: auto !important;
+        gap: 6px !important;
+        padding-bottom: 4px !important;
+        scrollbar-width: none !important;
     }
 
     .price-categories::-webkit-scrollbar {
-        display: none;
+        display: none !important;
     }
 
     .price-category {
-        flex: 0 0 auto;
-        min-height: 36px;
-        padding: 0 12px;
-        font-size: 8px;
+        flex: 0 0 auto !important;
+        min-height: 34px !important;
+        padding: 0 10px !important;
+        font-size: 7px !important;
     }
 
     .price-item {
-        width: 100%;
-        min-height: 62px;
-        padding: 12px 10px;
-        box-sizing: border-box;
-        gap: 10px;
-    }
-
-    .price-item span {
-        min-width: 0;
+        width: 100% !important;
+        min-height: 58px !important;
+        padding: 10px 8px !important;
+        gap: 7px !important;
     }
 
     .price-item strong {
-        display: block;
-        font-size: 10px;
-        line-height: 1.25;
+        font-size: 9px !important;
+        line-height: 1.2 !important;
     }
 
     .price-item small {
-        display: block;
-        margin-top: 3px;
-        font-size: 8px;
-        line-height: 1.3;
+        margin-top: 2px !important;
+        font-size: 7px !important;
+        line-height: 1.25 !important;
     }
 
     .price-item b {
-        flex: 0 0 auto;
-        font-size: 9px;
-        white-space: nowrap;
+        font-size: 8px !important;
+        white-space: nowrap !important;
     }
 
     .price-summary {
-        gap: 14px;
-        flex-direction: column;
+        gap: 10px !important;
     }
 
     .summary-right {
-        width: 100%;
-        align-items: flex-start;
+        padding-top: 10px !important;
     }
 
     .price-footer {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
+        gap: 9px !important;
     }
 
     .price-footer button {
-        width: 100%;
+        width: 100% !important;
     }
 
-    /* -----------------------------------------------------
-       CENNIK — FORMULARZ
-    ----------------------------------------------------- */
-
     .price-inquiry-header h3 {
-        font-size: 26px;
+        font-size: 24px !important;
     }
 
     .price-inquiry-header p {
-        font-size: 10px;
-    }
-
-    .price-inquiry-selected {
-        padding: 12px;
-    }
-
-    .price-inquiry-actions {
-        flex-direction: column;
-    }
-
-    .price-inquiry-actions button {
-        width: 100%;
+        font-size: 9px !important;
     }
 }
-
-
-/* =========================================================
-   MAŁE TELEFONY
-========================================================= */
 
 @media (max-width: 380px) {
 
     .site-logo {
-        width: 105px;
-        top: 15px;
-        left: 15px;
-    }
-
-    .facebook-button,
-    .portfolio-button,
-    .price-button {
-        right: 15px;
-    }
-
-    .facebook-button {
-        top: 15px;
+        left: 12px !important;
+        top: 12px !important;
+        width: 96px !important;
     }
 
     .portfolio-button {
-        top: 57px;
+        right: 108px !important;
+        width: 72px !important;
     }
 
     .price-button {
-        top: 99px;
+        right: 50px !important;
+        width: 48px !important;
+    }
+
+    .facebook-button {
+        right: 6px !important;
+        width: 40px !important;
+        padding: 0 4px !important;
     }
 
     .scene-content {
-        padding-left: 18px;
-        padding-right: 18px;
+        padding-left: 18px !important;
+        padding-right: 18px !important;
     }
 
     .scene-content h1,
     .scene-content h2 {
-        font-size: 32px;
+        font-size: 29px !important;
     }
 
     .scene-content p {
-        font-size: 10px;
+        font-size: 9px !important;
+        max-width: 300px !important;
     }
 
-    .upgrade-cards {
-        gap: 5px;
+    .scene[data-scene="4"] .cleaning-panel {
+        width: calc(100% - 28px) !important;
+        max-height: 42dvh !important;
+        padding: 12px !important;
     }
 
-    .upgrade-card {
-        min-height: 90px;
-        padding: 8px;
+    .scene[data-scene="5"] .upgrade-showcase {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
     }
 
-    .upgrade-card-name {
-        font-size: 16px;
+    .scene[data-scene="5"] .upgrade-card {
+        min-height: 76px !important;
+        padding: 7px !important;
     }
 
-    .cleaning-panel,
-    .system-scan {
-        transform: translate(-50%, -50%) scale(0.75);
+    .scene[data-scene="5"] .upgrade-card-name {
+        font-size: 14px !important;
     }
 
-    .contact-form {
-        width: calc(100vw - 36px);
+    .scene[data-scene="6"] .system-scan {
+        transform: translate(-50%, -50%) scale(0.78) !important;
+    }
+
+    .scene[data-scene="7"] .contact-form {
+        width: calc(100% - 28px) !important;
+        padding: 14px !important;
     }
 }
