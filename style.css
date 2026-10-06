@@ -5267,3 +5267,181 @@ body.price-open {
         padding: 14px !important;
     }
 }
+/* =========================================================
+   HANBYTECH — MOBILE FIX 06.10
+   TYLKO: GÓRNE LINKI + SCENA 02 + SCENA 06
+   DESKTOP BEZ ZMIAN
+========================================================= */
+
+@media (max-width: 800px) {
+
+    /* ===== GÓRNE LINKI ===== */
+
+    .site-logo {
+        top: 26px !important;
+        left: 22px !important;
+        width: 108px !important;
+        max-width: none !important;
+        z-index: 1000 !important;
+    }
+
+    .portfolio-button,
+    .price-button,
+    .facebook-button {
+        position: fixed !important;
+        top: 16px !important;
+        height: 34px !important;
+        min-height: 34px !important;
+        max-height: 34px !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+        z-index: 1001 !important;
+        white-space: nowrap !important;
+        transform: none !important;
+    }
+
+    .portfolio-button {
+        left: calc(50% - 40px) !important;
+        right: auto !important;
+        width: 87px !important;
+        padding: 0 6px !important;
+        font-size: 8px !important;
+        letter-spacing: 1.2px !important;
+    }
+
+    .price-button {
+        left: calc(50% + 56px) !important;
+        right: auto !important;
+        width: 62px !important;
+        padding: 0 4px !important;
+        font-size: 8px !important;
+        letter-spacing: 1px !important;
+    }
+
+    .facebook-button {
+        left: calc(50% + 121px) !important;
+        right: auto !important;
+        width: 53px !important;
+        padding: 0 2px !important;
+        gap: 2px !important;
+        font-size: 7px !important;
+        letter-spacing: .7px !important;
+    }
+
+    .facebook-icon {
+        display: none !important;
+    }
+
+    .facebook-arrow {
+        font-size: 8px !important;
+    }
+
+
+    /* ===== SCENA 02 — ANALIZA PROCESORA ===== */
+
+    .scene[data-scene="2"] .scene-content {
+        top: 25% !important;
+        left: 0 !important;
+        width: 100% !important;
+        padding: 0 22px !important;
+        transform: translateY(-50%) !important;
+        z-index: 30 !important;
+    }
+
+    .scene[data-scene="2"] .scene-content h2 {
+        font-size: clamp(38px, 10.5vw, 52px) !important;
+        line-height: .94 !important;
+        margin-bottom: 16px !important;
+    }
+
+    .scene[data-scene="2"] .scene-content p {
+        max-width: 390px !important;
+        margin: 0 auto 18px !important;
+        font-size: 15px !important;
+        line-height: 1.45 !important;
+    }
+
+    .scene[data-scene="2"] .scene-content .info {
+        font-size: 8px !important;
+        letter-spacing: 2px !important;
+    }
+
+    .scene[data-scene="2"] .cpu-analysis {
+        top: 53% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) scale(.78) !important;
+        transform-origin: center center !important;
+        z-index: 10 !important;
+    }
+
+
+    /* ===== SCENA 06 — DIAGNOSTYKA ===== */
+
+    .scene[data-scene="6"] .scene-content {
+        top: 26% !important;
+        left: 0 !important;
+        width: 100% !important;
+        padding: 0 22px !important;
+        transform: translateY(-50%) !important;
+        z-index: 30 !important;
+    }
+
+    .scene[data-scene="6"] .scene-content h2 {
+        font-size: clamp(40px, 11vw, 54px) !important;
+        line-height: .94 !important;
+        margin-bottom: 18px !important;
+    }
+
+    .scene[data-scene="6"] .scene-content p {
+        max-width: 390px !important;
+        margin: 0 auto 20px !important;
+        font-size: 15px !important;
+        line-height: 1.45 !important;
+    }
+
+    .scene[data-scene="6"] .scene-content .info {
+        font-size: 8px !important;
+        letter-spacing: 2px !important;
+    }
+
+    .scene[data-scene="6"] .diagnostics-image {
+        top: 68% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) scale(.72) !important;
+        transform-origin: center center !important;
+        z-index: 10 !important;
+    }
+}
+
+
+/* Małe telefony */
+@media (max-width: 390px) {
+
+    .site-logo {
+        left: 18px !important;
+        width: 102px !important;
+    }
+
+    .portfolio-button {
+        left: calc(50% - 42px) !important;
+        width: 82px !important;
+    }
+
+    .price-button {
+        left: calc(50% + 47px) !important;
+        width: 59px !important;
+    }
+
+    .facebook-button {
+        left: calc(50% + 109px) !important;
+        width: 51px !important;
+    }
+
+    .scene[data-scene="2"] .cpu-analysis {
+        transform: translate(-50%, -50%) scale(.70) !important;
+    }
+
+    .scene[data-scene="6"] .diagnostics-image {
+        transform: translate(-50%, -50%) scale(.64) !important;
+    }
+}
