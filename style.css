@@ -5445,3 +5445,211 @@ body.price-open {
         transform: translate(-50%, -50%) scale(.64) !important;
     }
 }
+/* =========================================================
+   HANBYTECH — POPRAWKA MOBILE v2
+   NIE RUSZA DESKTOPU
+========================================================= */
+
+@media (max-width: 800px) {
+
+    /* ===== GÓRNE PRZYCISKI ===== */
+
+    .portfolio-button,
+    .price-button,
+    .facebook-button {
+        position: fixed !important;
+        top: 16px !important;
+        bottom: auto !important;
+        transform: none !important;
+        z-index: 9999 !important;
+        height: 34px !important;
+        min-height: 34px !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+    }
+
+    .portfolio-button {
+        left: calc(100vw - 235px) !important;
+        right: auto !important;
+        width: 76px !important;
+        padding: 0 4px !important;
+        font-size: 8px !important;
+        letter-spacing: 1px !important;
+    }
+
+    .price-button {
+        left: calc(100vw - 153px) !important;
+        right: auto !important;
+        width: 62px !important;
+        padding: 0 4px !important;
+        font-size: 8px !important;
+        letter-spacing: 1px !important;
+    }
+
+    .facebook-button {
+        left: calc(100vw - 86px) !important;
+        right: auto !important;
+        width: 72px !important;
+        padding: 0 3px !important;
+        gap: 2px !important;
+        font-size: 7px !important;
+        letter-spacing: .6px !important;
+    }
+
+    .facebook-icon {
+        display: none !important;
+    }
+
+
+    /* =====================================================
+       SCENA 02 — CPU
+       KONTENER MA ZOSTAĆ NA CAŁY EKRAN
+    ===================================================== */
+
+    .scene[data-scene="2"] .cpu-analysis {
+        position: absolute !important;
+        inset: 0 !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: 100% !important;
+        height: 100% !important;
+        transform: none !important;
+        z-index: 1 !important;
+    }
+
+    .scene[data-scene="2"] .scene-content {
+        top: 27% !important;
+        left: 0 !important;
+        width: 100% !important;
+        padding: 0 20px !important;
+        transform: translateY(-50%) !important;
+        z-index: 50 !important;
+        box-sizing: border-box !important;
+    }
+
+    .scene[data-scene="2"] .scene-content h2 {
+        font-size: clamp(34px, 9vw, 48px) !important;
+        line-height: .95 !important;
+        margin-bottom: 14px !important;
+    }
+
+    .scene[data-scene="2"] .scene-content p {
+        max-width: 330px !important;
+        margin: 0 auto 16px !important;
+        font-size: 11px !important;
+        line-height: 1.55 !important;
+    }
+
+    .scene[data-scene="2"] .scene-content .info {
+        font-size: 7px !important;
+        letter-spacing: 1.5px !important;
+    }
+
+    .scene[data-scene="2"] .cpu-photo {
+        width: 68% !important;
+        height: 68% !important;
+        top: 65% !important;
+    }
+
+    .scene[data-scene="2"] .cpu-ring {
+        width: 270px !important;
+        height: 270px !important;
+        top: 65% !important;
+    }
+
+    .scene[data-scene="2"] .cpu-center {
+        top: 65% !important;
+    }
+
+
+    /* =====================================================
+       SCENA 06 — DIAGNOSTYKA
+       KONTENER MA ZOSTAĆ NA CAŁY EKRAN
+    ===================================================== */
+
+    .scene[data-scene="6"] .diagnostics-image {
+        position: absolute !important;
+        inset: 0 !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: 100% !important;
+        height: 100% !important;
+        transform: none !important;
+        z-index: 1 !important;
+        padding-bottom: 7% !important;
+        box-sizing: border-box !important;
+    }
+
+    .scene[data-scene="6"] .scene-content {
+        top: 27% !important;
+        left: 0 !important;
+        width: 100% !important;
+        padding: 0 20px !important;
+        transform: translateY(-50%) !important;
+        z-index: 50 !important;
+        box-sizing: border-box !important;
+    }
+
+    .scene[data-scene="6"] .scene-content h2 {
+        font-size: clamp(34px, 9.5vw, 50px) !important;
+        line-height: .95 !important;
+        margin-bottom: 14px !important;
+    }
+
+    .scene[data-scene="6"] .scene-content p {
+        max-width: 330px !important;
+        margin: 0 auto 16px !important;
+        font-size: 11px !important;
+        line-height: 1.55 !important;
+    }
+
+    .scene[data-scene="6"] .scene-content .info {
+        font-size: 7px !important;
+        letter-spacing: 1.5px !important;
+    }
+
+    .scene[data-scene="6"] .system-scan {
+        width: min(82vw, 360px) !important;
+        transform: scale(.72) !important;
+        transform-origin: bottom center !important;
+    }
+}
+
+
+/* ===== BARDZO MAŁE TELEFONY ===== */
+
+@media (max-width: 360px) {
+
+    .portfolio-button {
+        left: calc(100vw - 220px) !important;
+        width: 70px !important;
+    }
+
+    .price-button {
+        left: calc(100vw - 144px) !important;
+        width: 58px !important;
+    }
+
+    .facebook-button {
+        left: calc(100vw - 81px) !important;
+        width: 68px !important;
+    }
+
+    .scene[data-scene="2"] .cpu-ring {
+        width: 240px !important;
+        height: 240px !important;
+    }
+
+    .scene[data-scene="2"] .cpu-photo {
+        width: 62% !important;
+        height: 62% !important;
+    }
+
+    .scene[data-scene="6"] .system-scan {
+        transform: scale(.62) !important;
+    }
+}
