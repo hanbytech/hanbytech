@@ -4755,7 +4755,7 @@ body.price-open {
     }
 
     .scene[data-scene="3"] .gpu-online {
-        top: 34% !important;
+        top: 41% !important;
         right: 5% !important;
         padding: 6px 8px !important;
         font-size: 6px !important;
@@ -5166,6 +5166,18 @@ body.price-open {
         transform: translateX(-50%) !important;
         font-size: 7px !important;
         z-index: 1800 !important;
+    }
+
+    #sceneCounter {
+        position: fixed !important;
+        left: 50% !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: 16px !important;
+        transform: translateX(-50%) !important;
+        margin: 0 !important;
+        text-align: center !important;
+        z-index: 1900 !important;
     }
 
     .scroll-line {
