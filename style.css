@@ -5173,7 +5173,7 @@ body.price-open {
         left: 50% !important;
         right: auto !important;
         top: auto !important;
-        bottom: 16px !important;
+        bottom: 6px !important;
         transform: translateX(-50%) !important;
         margin: 0 !important;
         text-align: center !important;
