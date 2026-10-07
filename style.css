@@ -4505,6 +4505,23 @@ body.price-open {
 }
 
 
+
+/* FIX — przewijanie strony polityki prywatności */
+html.privacy-page-root {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+html.privacy-page-root body.privacy-page {
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
 /* =========================================================
    POLITYKA PRYWATNOŚCI
 ========================================================= */
