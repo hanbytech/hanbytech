@@ -4383,6 +4383,35 @@ body.price-open {
    Desktop pozostaje bez zmian.
 ========================================================= */
 
+
+
+
+/* =========================================================
+   HANBYTECH — MOBILE FIX 06.10
+   TYLKO: GÓRNE LINKI + SCENA 02 + SCENA 06
+   DESKTOP BEZ ZMIAN
+========================================================= */
+
+
+
+
+/* Małe telefony */
+
+/* =========================================================
+   HANBYTECH — POPRAWKA MOBILE v2
+   NIE RUSZA DESKTOPU
+========================================================= */
+
+
+
+
+/* ===== BARDZO MAŁE TELEFONY ===== */
+
+/* =========================================================
+   HANBYTECH — CLEAN MOBILE LAYOUT
+   Jeden blok mobilny. Desktop powyżej pozostaje bez zmian.
+========================================================= */
+
 @media (max-width: 800px) {
 
     html,
@@ -4398,27 +4427,27 @@ body.price-open {
         min-height: 100dvh;
     }
 
-    .story {
-        position: relative;
+    .story,
+    .scene {
         width: 100%;
         height: 100dvh;
         min-height: 100dvh;
         overflow: hidden;
+    }
+
+    .story {
+        position: relative;
     }
 
     .scene {
-        display: block;
         position: absolute;
         inset: 0;
-        width: 100%;
-        height: 100dvh;
-        min-height: 100dvh;
-        overflow: hidden;
-        transform: scale(1.01);
+        display: block;
+        transform: none;
     }
 
     .scene.active {
-        transform: scale(1);
+        transform: none;
     }
 
     .scene > .scene-visual {
@@ -4426,129 +4455,138 @@ body.price-open {
         inset: 0;
         width: 100%;
         height: 100%;
-        z-index: 1;
         overflow: hidden;
+        z-index: 1;
     }
+
+    /* ===== GÓRA ===== */
 
     .site-logo {
         position: fixed !important;
-        top: 14px !important;
-        left: 16px !important;
-        width: 108px !important;
-        max-width: 29vw !important;
+        top: 18px !important;
+        left: 18px !important;
+        width: 104px !important;
         z-index: 2000 !important;
     }
 
     .site-logo img {
         width: 100% !important;
         height: auto !important;
-        display: block;
     }
 
     .portfolio-button,
     .price-button,
     .facebook-button {
         position: fixed !important;
-        top: 14px !important;
-        right: auto !important;
+        top: 16px !important;
         left: auto !important;
-        z-index: 2000 !important;
-        height: 32px !important;
-        min-height: 32px !important;
-        box-sizing: border-box !important;
-        padding: 0 8px !important;
+        bottom: auto !important;
+        height: 34px !important;
+        min-height: 34px !important;
         margin: 0 !important;
-        white-space: nowrap !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
-        font-size: 7px !important;
-        letter-spacing: 1px !important;
+        white-space: nowrap !important;
+        transform: none !important;
+        z-index: 2100 !important;
     }
 
     .portfolio-button {
-        right: 126px !important;
-        width: 82px !important;
+        right: 154px !important;
+        width: 88px !important;
+        gap: 0 !important;
+        font-size: 7px !important;
+        letter-spacing: .8px !important;
+    }
+
+    .portfolio-button::after {
+        display: none !important;
     }
 
     .price-button {
-        right: 60px !important;
-        width: 58px !important;
+        right: 86px !important;
+        width: 62px !important;
+        font-size: 8px !important;
+        letter-spacing: 1px !important;
     }
 
     .facebook-button {
         right: 8px !important;
-        width: 48px !important;
-        gap: 3px !important;
+        width: 72px !important;
+        gap: 2px !important;
+        font-size: 7px !important;
+        letter-spacing: .6px !important;
     }
 
     .facebook-icon {
-        width: auto !important;
-        height: auto !important;
-        font-size: 10px !important;
+        display: none !important;
     }
 
     .facebook-arrow {
         font-size: 8px !important;
     }
 
+    /* ===== WSPÓLNY TEKST SCEN ===== */
+
     .scene-content {
         position: absolute !important;
         left: 0 !important;
         right: 0 !important;
-        top: 50% !important;
         width: 100% !important;
         max-width: none !important;
         height: auto !important;
-        padding: 0 22px !important;
+        padding: 0 20px !important;
         margin: 0 !important;
         box-sizing: border-box !important;
         display: flex !important;
         flex-direction: column !important;
-        justify-content: center !important;
         align-items: center !important;
-        transform: translateY(-50%) !important;
+        justify-content: center !important;
         text-align: center !important;
-        z-index: 100 !important;
+        z-index: 50 !important;
     }
 
     .scene-content .category {
-        margin: 0 0 12px !important;
+        margin: 0 0 10px !important;
         font-size: 7px !important;
         line-height: 1.3 !important;
-        letter-spacing: 2.5px !important;
+        letter-spacing: 2px !important;
     }
 
     .scene-content h1,
     .scene-content h2 {
         width: 100% !important;
         margin: 0 !important;
-        font-size: clamp(30px, 9.5vw, 48px) !important;
-        line-height: 0.98 !important;
+        font-size: clamp(32px, 9vw, 48px) !important;
+        line-height: .96 !important;
         letter-spacing: -1.5px !important;
     }
 
     .scene-content p {
         width: 100% !important;
-        max-width: 340px !important;
-        margin: 16px auto 0 !important;
+        max-width: 330px !important;
+        margin: 14px auto 0 !important;
         font-size: 10px !important;
-        line-height: 1.55 !important;
+        line-height: 1.5 !important;
     }
 
     .scene-content .info {
         width: 100% !important;
         max-width: 340px !important;
-        margin: 14px auto 0 !important;
+        margin: 12px auto 0 !important;
         font-size: 6.5px !important;
-        line-height: 1.8 !important;
-        letter-spacing: 1.5px !important;
+        line-height: 1.6 !important;
+        letter-spacing: 1.4px !important;
     }
 
-    /* SCENA 1 */
+    /* ===== SCENA 1 ===== */
 
-    .scene[data-scene="1"] .hero-image {
-        opacity: 1 !important;
+    .scene[data-scene="1"] .scene-content {
+        top: 54% !important;
+        transform: translateY(-50%) !important;
     }
 
     .scene[data-scene="1"] .hero-image img {
@@ -4560,28 +4598,12 @@ body.price-open {
     }
 
     .scene[data-scene="1"] .hero-image::after {
-        content: "" !important;
-        position: absolute !important;
-        inset: 0 !important;
-        background:
-            linear-gradient(
-                to bottom,
-                rgba(5,7,10,0.62) 0%,
-                rgba(5,7,10,0.34) 35%,
-                rgba(5,7,10,0.86) 100%
-            ) !important;
-    }
-
-    .scene[data-scene="1"] .scene-content {
-        top: 55% !important;
-    }
-
-    .scene[data-scene="1"] .scene-content h1 {
-        font-size: clamp(34px, 10.5vw, 52px) !important;
-    }
-
-    .scene[data-scene="1"] .scene-content p {
-        max-width: 315px !important;
+        background: linear-gradient(
+            to bottom,
+            rgba(5,7,10,.58) 0%,
+            rgba(5,7,10,.32) 38%,
+            rgba(5,7,10,.88) 100%
+        ) !important;
     }
 
     .contact-button {
@@ -4592,92 +4614,148 @@ body.price-open {
         letter-spacing: 1.5px !important;
     }
 
-    /* SCENA 2 — CPU */
+    /* ===== SCENA 2 — CPU ===== */
 
     .scene[data-scene="2"] .scene-content {
-        top: 22% !important;
-        transform: translateY(0) !important;
+        top: 18% !important;
+        transform: none !important;
     }
 
-    .scene[data-scene="2"] .cpu-analysis {
-        opacity: 1 !important;
+    /* Na telefonie cała warstwa CPU odnosi się do całego ekranu. */
+    .scene[data-scene="2"] .scene-visual.cpu-analysis {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        transform: none !important;
+        overflow: hidden !important;
     }
 
     .scene[data-scene="2"] .cpu-photo {
-        width: 62% !important;
-        height: 62% !important;
-        opacity: 0.35 !important;
+        position: absolute !important;
+        left: 50% !important;
+        top: 68% !important;
+        width: 72% !important;
+        height: 42% !important;
+        max-width: none !important;
+        max-height: none !important;
+        object-fit: contain !important;
+        transform: translate(-50%, -50%) !important;
+        opacity: .42 !important;
     }
 
     .scene[data-scene="2"] .cpu-ring {
-        width: min(68vw, 285px) !important;
-        height: min(68vw, 285px) !important;
+        left: 50% !important;
+        top: 68% !important;
+        width: min(78vw, 245px) !important;
+        height: min(78vw, 245px) !important;
+        transform: translate(-50%, -50%) !important;
     }
 
     .scene[data-scene="2"] .cpu-center {
-        width: 140px !important;
+        left: 50% !important;
+        top: 68% !important;
+        width: 132px !important;
+        transform: translate(-50%, -50%) !important;
+    }
+
+    .scene[data-scene="2"] .cpu-status {
+        font-size: 6px !important;
+        letter-spacing: 1.5px !important;
+        padding: 4px 7px !important;
+    }
+
+    .scene[data-scene="2"] .cpu-status strong {
+        font-size: 8px !important;
     }
 
     .scene[data-scene="2"] .cpu-speed {
-        font-size: 25px !important;
+        margin-top: 6px !important;
+        padding: 2px 7px !important;
+        font-size: 23px !important;
     }
 
+    .scene[data-scene="2"] .cpu-speed span {
+        font-size: 8px !important;
+    }
+
+    /* Cztery opisy są teraz ustawione wokół procesora,
+       a nie względem starego desktopowego panelu. */
     .scene[data-scene="2"] .cpu-line {
-        width: 95px !important;
+        width: 68px !important;
+        height: 1px !important;
     }
 
     .scene[data-scene="2"] .cpu-line span {
-        font-size: 6px !important;
-        letter-spacing: 1px !important;
+        top: -7px !important;
+        padding: 3px 4px !important;
+        font-size: 5.5px !important;
+        letter-spacing: .6px !important;
+        white-space: nowrap !important;
     }
 
     .scene[data-scene="2"] .cpu-line-core {
-        top: 37% !important;
-        left: 3% !important;
+        top: 58% !important;
+        left: 6% !important;
     }
 
     .scene[data-scene="2"] .cpu-line-cache {
-        top: 43% !important;
-        right: 3% !important;
+        top: 76% !important;
+        left: 6% !important;
     }
 
     .scene[data-scene="2"] .cpu-line-temp {
-        bottom: 32% !important;
-        left: 3% !important;
+        top: 58% !important;
+        right: 6% !important;
+        left: auto !important;
     }
 
     .scene[data-scene="2"] .cpu-line-clock {
-        bottom: 25% !important;
-        right: 3% !important;
+        top: 76% !important;
+        right: 6% !important;
+        left: auto !important;
+    }
+
+    .scene[data-scene="2"] .cpu-line::after {
+        width: 4px !important;
+        height: 4px !important;
+    }
+
+    .scene[data-scene="2"] .cpu-scan {
+        left: 20% !important;
+        right: 20% !important;
     }
 
     .scene[data-scene="2"] .cpu-tech-label {
-        bottom: 9% !important;
-        font-size: 6px !important;
-        letter-spacing: 1.5px !important;
-        text-align: center !important;
+        right: 5% !important;
+        bottom: 6% !important;
+        padding: 4px 6px !important;
+        font-size: 5px !important;
+        letter-spacing: .8px !important;
     }
 
-    /* SCENA 3 — GPU */
+    .scene[data-scene="2"] .cpu-tech-label span {
+        margin-top: 3px !important;
+        font-size: 4px !important;
+        letter-spacing: .6px !important;
+    }
+
+    /* ===== SCENA 3 — GPU ===== */
 
     .scene[data-scene="3"] .scene-content {
-        top: 20% !important;
-        transform: translateY(0) !important;
-    }
-
-    .scene[data-scene="3"] .gpu-image {
-        opacity: 1 !important;
+        top: 18% !important;
+        transform: none !important;
     }
 
     .scene[data-scene="3"] .gpu-photo {
-        width: 78% !important;
-        height: 78% !important;
-        top: 55% !important;
+        width: 76% !important;
+        height: 76% !important;
+        top: 58% !important;
         left: 50% !important;
     }
 
     .scene[data-scene="3"] .gpu-online {
-        top: 32% !important;
+        top: 34% !important;
         right: 5% !important;
         padding: 6px 8px !important;
         font-size: 6px !important;
@@ -4698,58 +4776,40 @@ body.price-open {
     }
 
     .scene[data-scene="3"] .gpu-core {
-        top: 43% !important;
+        top: 44% !important;
         right: 4% !important;
     }
 
     .scene[data-scene="3"] .gpu-memory {
-        top: 53% !important;
+        top: 54% !important;
         right: 4% !important;
     }
 
     .scene[data-scene="3"] .gpu-temp {
-        bottom: 27% !important;
+        bottom: 25% !important;
         right: 4% !important;
     }
 
     .scene[data-scene="3"] .gpu-performance {
         left: 8% !important;
         right: 8% !important;
-        bottom: 8% !important;
+        bottom: 7% !important;
         padding: 9px 10px !important;
     }
 
-    .scene[data-scene="3"] .gpu-performance-header {
-        font-size: 6px !important;
-    }
-
-    .scene[data-scene="3"] .gpu-performance-header strong {
-        font-size: 8px !important;
-    }
-
-    /* SCENA 4 — CZYSZCZENIE */
+    /* ===== SCENA 4 — CZYSZCZENIE ===== */
 
     .scene[data-scene="4"] .scene-content {
-        top: 17% !important;
-        transform: translateY(0) !important;
+        top: 15% !important;
+        transform: none !important;
     }
 
     .scene[data-scene="4"] .cleaning-background {
         width: 100% !important;
         height: 100% !important;
         object-fit: cover !important;
-        opacity: 0.24 !important;
+        opacity: .24 !important;
         transform: none !important;
-    }
-
-    .scene[data-scene="4"] .cleaning-overlay {
-        background:
-            linear-gradient(
-                to bottom,
-                rgba(5,7,10,0.65),
-                rgba(5,7,10,0.25) 45%,
-                rgba(5,7,10,0.9)
-            ) !important;
     }
 
     .scene[data-scene="4"] .cleaning-panel {
@@ -4757,8 +4817,8 @@ body.price-open {
         left: 50% !important;
         top: 67% !important;
         width: calc(100% - 36px) !important;
-        max-height: 43dvh !important;
-        padding: 16px !important;
+        max-height: 44dvh !important;
+        padding: 15px !important;
         box-sizing: border-box !important;
         transform: translate(-50%, -50%) !important;
         overflow: hidden !important;
@@ -4766,76 +4826,57 @@ body.price-open {
 
     .cleaning-header {
         font-size: 7px !important;
-        letter-spacing: 1.5px !important;
+        letter-spacing: 1.3px !important;
     }
 
-    .cleaning-counter {
-        font-size: 6px !important;
-    }
-
-    .cleaning-progress {
-        margin-top: 12px !important;
-    }
-
-    .cleaning-steps {
-        margin-top: 10px !important;
-    }
-
-    .cleaning-step {
-        gap: 8px !important;
-        padding: 7px 0 !important;
-        font-size: 6px !important;
-        letter-spacing: 1px !important;
-    }
-
-    .step-icon {
-        width: 12px !important;
-        font-size: 8px !important;
-    }
-
-    .cleaning-divider {
-        margin: 10px 0 !important;
-    }
-
+    .cleaning-counter,
     .airflow-header,
     .temperature-title {
         font-size: 6px !important;
-        letter-spacing: 1px !important;
+    }
+
+    .cleaning-progress,
+    .cleaning-status {
+        margin-top: 10px !important;
+    }
+
+    .cleaning-steps {
+        margin-top: 8px !important;
+    }
+
+    .cleaning-step {
+        gap: 7px !important;
+        padding: 6px 0 !important;
+        font-size: 6px !important;
+        letter-spacing: .8px !important;
+    }
+
+    .cleaning-divider {
+        margin: 9px 0 !important;
     }
 
     .temperature {
-        margin-top: 11px !important;
+        margin-top: 9px !important;
     }
 
     .temperature-values {
-        gap: 14px !important;
-    }
-
-    .temperature-values small {
-        font-size: 5px !important;
+        gap: 12px !important;
     }
 
     .temperature-values strong {
         font-size: 14px !important;
     }
 
-    .temperature-arrow {
-        font-size: 13px !important;
-    }
-
     .cleaning-status {
-        gap: 6px !important;
-        margin-top: 12px !important;
-        padding-top: 10px !important;
+        padding-top: 9px !important;
         font-size: 6px !important;
-        letter-spacing: 1px !important;
     }
 
-    /* SCENA 5 — UPGRADE */
+    /* ===== SCENA 5 — UPGRADE ===== */
 
     .scene[data-scene="5"] .scene-content {
-        top: 15% !important;
-        transform: translateY(0) !important;
+        top: 13% !important;
+        transform: none !important;
     }
 
     .scene[data-scene="5"] .upgrade-showcase {
@@ -4843,16 +4884,16 @@ body.price-open {
         inset: 0 !important;
         width: 100% !important;
         height: 100% !important;
-        padding: 0 18px 7dvh !important;
+        padding: 0 16px 6dvh !important;
         display: flex !important;
+        flex-direction: column !important;
         justify-content: flex-end !important;
-        align-items: center !important;
         box-sizing: border-box !important;
     }
 
     .scene[data-scene="5"] .upgrade-label {
         width: 100% !important;
-        margin-bottom: 10px !important;
+        margin-bottom: 8px !important;
         font-size: 6px !important;
     }
 
@@ -4862,7 +4903,6 @@ body.price-open {
     }
 
     .scene[data-scene="5"] .upgrade-cards {
-        width: 100% !important;
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
         gap: 6px !important;
     }
@@ -4877,14 +4917,6 @@ body.price-open {
         font-size: 16px !important;
     }
 
-    .scene[data-scene="5"] .upgrade-card-top {
-        font-size: 6px !important;
-    }
-
-    .scene[data-scene="5"] .upgrade-card-top small {
-        font-size: 5px !important;
-    }
-
     .scene[data-scene="5"] .upgrade-card-bottom {
         left: 9px !important;
         right: 9px !important;
@@ -4892,172 +4924,232 @@ body.price-open {
         font-size: 5px !important;
     }
 
-    .scene[data-scene="5"] .upgrade-card-bottom strong {
-        font-size: 6px !important;
-    }
-
     .scene[data-scene="5"] .upgrade-result {
-        width: 100% !important;
-        margin-top: 10px !important;
-        padding: 10px 9px !important;
-    }
-
-    .scene[data-scene="5"] .upgrade-result-label {
-        font-size: 5px !important;
+        margin-top: 9px !important;
+        padding: 9px !important;
     }
 
     .scene[data-scene="5"] .upgrade-result-value strong {
         font-size: 20px !important;
     }
 
-    .scene[data-scene="5"] .upgrade-result-value span {
-        font-size: 5px !important;
-    }
-
     .scene[data-scene="5"] .upgrade-status-line {
-        width: 100% !important;
-        margin-top: 9px !important;
+        margin-top: 8px !important;
         font-size: 5px !important;
     }
 
-    /* SCENA 6 — DIAGNOSTYKA */
+    /* ===== SCENA 6 — DIAGNOSTYKA ===== */
 
     .scene[data-scene="6"] .scene-content {
         top: 17% !important;
-        transform: translateY(0) !important;
+        transform: none !important;
     }
 
+    /* Warstwa diagnostyczna zajmuje cały ekran.
+       Dzięki temu SYSTEM CORE nie może "uciec" w róg. */
     .scene[data-scene="6"] .diagnostics-image {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        transform: none !important;
+        overflow: hidden !important;
         display: block !important;
-        opacity: 1 !important;
     }
 
     .scene[data-scene="6"] .system-scan {
         position: absolute !important;
-        left: 50% !important;
-        top: 66% !important;
-        width: calc(100% - 34px) !important;
-        height: 42dvh !important;
-        transform: translate(-50%, -50%) scale(0.9) !important;
+        inset: 0 !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        transform: none !important;
         transform-origin: center !important;
+        overflow: visible !important;
     }
 
     .scene[data-scene="6"] .system-scan::before {
-        width: 145px !important;
-        height: 145px !important;
-        font-size: 10px !important;
+        left: 50% !important;
+        top: 69% !important;
+        width: 118px !important;
+        height: 118px !important;
+        transform: translate(-50%, -50%) !important;
+        font-size: 8px !important;
+        letter-spacing: 2px !important;
+        line-height: 1.45 !important;
     }
 
     .scene[data-scene="6"] .system-scan::after {
-        width: 215px !important;
-        height: 215px !important;
-    }
-
-    .scene[data-scene="6"] .scan-item {
-        width: 115px !important;
-        padding: 7px 9px !important;
-        font-size: 6px !important;
-    }
-
-    .scene[data-scene="6"] .scan-value {
-        font-size: 5px !important;
-    }
-
-    .scene[data-scene="6"] .scan-header {
-        width: 70% !important;
-        font-size: 6px !important;
+        left: 50% !important;
+        top: 69% !important;
+        width: 178px !important;
+        height: 178px !important;
+        transform: translate(-50%, -50%) !important;
+        box-shadow:
+            0 0 0 13px rgba(77,163,255,0.012),
+            0 0 0 27px rgba(77,163,255,0.008) !important;
     }
 
     .scene[data-scene="6"] .scan-footer {
+        left: 50% !important;
+        top: 69% !important;
+        width: 145px !important;
+        height: 145px !important;
         font-size: 5px !important;
     }
 
-    /* SCENA 7 — KONTAKT */
+    .scene[data-scene="6"] .scan-footer::after {
+        bottom: -27px !important;
+        font-size: 6px !important;
+        letter-spacing: 2px !important;
+    }
+
+    .scene[data-scene="6"] .scan-header {
+        left: 50% !important;
+        top: 49% !important;
+        width: 72% !important;
+        transform: translateX(-50%) !important;
+        font-size: 5.5px !important;
+        letter-spacing: 1.2px !important;
+        text-align: center !important;
+    }
+
+    .scene[data-scene="6"] .scan-item {
+        width: 90px !important;
+        padding: 4px 5px !important;
+        gap: 3px !important;
+        background: rgba(5,7,10,.42) !important;
+    }
+
+    .scene[data-scene="6"] .scan-item > span:first-child {
+        font-size: 5.5px !important;
+        letter-spacing: 1px !important;
+    }
+
+    .scene[data-scene="6"] .scan-value {
+        font-size: 7px !important;
+        letter-spacing: .5px !important;
+    }
+
+    .scene[data-scene="6"] .gpu-error small {
+        margin-top: 2px !important;
+        font-size: 5.5px !important;
+        letter-spacing: .8px !important;
+    }
+
+    /* Mobilnie nie ciągniemy długich desktopowych przewodów.
+       To one robiły największy wizualny bałagan. */
+    .scene[data-scene="6"] .scan-item::after {
+        display: none !important;
+    }
+
+    .scene[data-scene="6"] .scan-item::before {
+        width: 4px !important;
+        height: 4px !important;
+    }
+
+    .scene[data-scene="6"] .scan-item:nth-child(3) {
+        left: 5% !important;
+        top: 55% !important;
+    }
+
+    .scene[data-scene="6"] .scan-item:nth-child(4) {
+        left: 5% !important;
+        top: 68% !important;
+    }
+
+    .scene[data-scene="6"] .scan-item:nth-child(5) {
+        left: 8% !important;
+        top: 80% !important;
+        bottom: auto !important;
+    }
+
+    .scene[data-scene="6"] .scan-item:nth-child(6) {
+        right: 5% !important;
+        top: 57% !important;
+        left: auto !important;
+    }
+
+    .scene[data-scene="6"] .scan-item:nth-child(7) {
+        right: 5% !important;
+        top: 76% !important;
+        left: auto !important;
+        bottom: auto !important;
+    }
+
+    /* ===== SCENA 7 — KONTAKT ===== */
 
     .scene[data-scene="7"] .contact-content {
-        top: 16% !important;
-        transform: translateY(0) !important;
+        top: 14% !important;
+        transform: none !important;
     }
 
     .scene[data-scene="7"] .contact-details {
-        margin-top: 12px !important;
-        gap: 5px !important;
+        margin-top: 10px !important;
+        gap: 4px !important;
     }
 
     .scene[data-scene="7"] .contact-details span {
         font-size: 6px !important;
-        letter-spacing: 1.5px !important;
+        letter-spacing: 1.3px !important;
     }
 
     .scene[data-scene="7"] .contact-details a {
         font-size: 11px !important;
-        word-break: break-word !important;
     }
 
     .scene[data-scene="7"] .contact-image {
         position: absolute !important;
         left: 0 !important;
         right: 0 !important;
-        top: auto !important;
         bottom: 5dvh !important;
         width: 100% !important;
         height: auto !important;
         display: flex !important;
         align-items: flex-end !important;
         justify-content: center !important;
-        opacity: 1 !important;
     }
 
     .scene[data-scene="7"] .contact-form {
         width: calc(100% - 34px) !important;
         max-width: 400px !important;
-        padding: 18px !important;
-        gap: 9px !important;
+        padding: 16px !important;
+        gap: 8px !important;
         box-sizing: border-box !important;
     }
 
     .scene[data-scene="7"] .contact-form input,
     .scene[data-scene="7"] .contact-form textarea {
-        width: 100% !important;
-        padding: 10px 0 !important;
+        padding: 9px 0 !important;
         font-size: 9px !important;
-        box-sizing: border-box !important;
     }
 
     .scene[data-scene="7"] .contact-form textarea {
-        height: 65px !important;
-        min-height: 65px !important;
+        height: 62px !important;
     }
 
-    .scene[data-scene="7"] .contact-form button {
-        min-height: 38px !important;
-        padding: 10px !important;
-        font-size: 8px !important;
-    }
-
-    /* STAŁY KONTAKT */
+    /* ===== DOLNA NAWIGACJA ===== */
 
     .fixed-contact {
-        left: 14px !important;
-        bottom: 15px !important;
-        padding: 9px 13px !important;
+        left: 12px !important;
+        bottom: 14px !important;
+        padding: 9px 12px !important;
         font-size: 7px !important;
-        letter-spacing: 1.2px !important;
+        letter-spacing: 1px !important;
         z-index: 1900 !important;
     }
-
-    /* NAWIGACJA / LICZNIK */
 
     .navigation {
         position: fixed !important;
-        right: 10px !important;
+        right: 9px !important;
         top: auto !important;
-        bottom: 12px !important;
-        z-index: 1900 !important;
+        bottom: 11px !important;
         display: flex !important;
         flex-direction: row !important;
         gap: 4px !important;
         transform: none !important;
+        z-index: 1900 !important;
     }
 
     .navigation button {
@@ -5070,31 +5162,21 @@ body.price-open {
         position: fixed !important;
         left: 50% !important;
         right: auto !important;
-        top: auto !important;
-        bottom: 17px !important;
-        z-index: 1800 !important;
+        bottom: 16px !important;
         transform: translateX(-50%) !important;
         font-size: 7px !important;
+        z-index: 1800 !important;
     }
 
     .scroll-line {
         display: none !important;
     }
 
-    #sceneCounter {
-        position: static !important;
-        right: auto !important;
-        bottom: auto !important;
-        font-size: 7px !important;
-        letter-spacing: 1.5px !important;
-    }
-
-    /* CENNIK */
+    /* ===== CENNIK ===== */
 
     .price-overlay {
         padding: 10px !important;
         box-sizing: border-box !important;
-        align-items: center !important;
     }
 
     .price-panel {
@@ -5103,45 +5185,15 @@ body.price-open {
         height: calc(100dvh - 20px) !important;
         max-height: calc(100dvh - 20px) !important;
         padding: 24px 14px 14px !important;
-        border-radius: 12px !important;
         overflow-x: hidden !important;
         overflow-y: auto !important;
         box-sizing: border-box !important;
     }
 
-    .price-close {
-        top: 9px !important;
-        right: 9px !important;
-        width: 30px !important;
-        height: 30px !important;
-        font-size: 21px !important;
-    }
-
-    .price-header {
-        padding-right: 34px !important;
-    }
-
-    .price-header h2 {
-        font-size: 27px !important;
-        line-height: 1 !important;
-    }
-
-    .price-header p {
-        font-size: 9px !important;
-        line-height: 1.45 !important;
-    }
-
     .price-categories {
-        width: 100% !important;
         display: flex !important;
         overflow-x: auto !important;
         gap: 6px !important;
-        padding-bottom: 4px !important;
-        scrollbar-width: none !important;
-    }
-
-    .price-categories::-webkit-scrollbar {
-        display: none !important;
     }
 
     .price-category {
@@ -5158,44 +5210,8 @@ body.price-open {
         gap: 7px !important;
     }
 
-    .price-item strong {
-        font-size: 9px !important;
-        line-height: 1.2 !important;
-    }
-
-    .price-item small {
-        margin-top: 2px !important;
-        font-size: 7px !important;
-        line-height: 1.25 !important;
-    }
-
-    .price-item b {
-        font-size: 8px !important;
-        white-space: nowrap !important;
-    }
-
-    .price-summary {
-        gap: 10px !important;
-    }
-
-    .summary-right {
-        padding-top: 10px !important;
-    }
-
-    .price-footer {
-        gap: 9px !important;
-    }
-
     .price-footer button {
         width: 100% !important;
-    }
-
-    .price-inquiry-header h3 {
-        font-size: 24px !important;
-    }
-
-    .price-inquiry-header p {
-        font-size: 9px !important;
     }
 }
 
@@ -5203,29 +5219,28 @@ body.price-open {
 
     .site-logo {
         left: 12px !important;
-        top: 12px !important;
-        width: 96px !important;
+        width: 92px !important;
     }
 
     .portfolio-button {
-        right: 108px !important;
-        width: 72px !important;
+        right: 142px !important;
+        width: 78px !important;
+        font-size: 6.5px !important;
     }
 
     .price-button {
-        right: 50px !important;
-        width: 48px !important;
+        right: 78px !important;
+        width: 58px !important;
     }
 
     .facebook-button {
         right: 6px !important;
-        width: 40px !important;
-        padding: 0 4px !important;
+        width: 66px !important;
     }
 
     .scene-content {
-        padding-left: 18px !important;
-        padding-right: 18px !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
     }
 
     .scene-content h1,
@@ -5233,430 +5248,26 @@ body.price-open {
         font-size: 29px !important;
     }
 
-    .scene-content p {
-        font-size: 9px !important;
-        max-width: 300px !important;
-    }
-
-    .scene[data-scene="4"] .cleaning-panel {
-        width: calc(100% - 28px) !important;
-        max-height: 42dvh !important;
-        padding: 12px !important;
-    }
-
-    .scene[data-scene="5"] .upgrade-showcase {
-        padding-left: 12px !important;
-        padding-right: 12px !important;
-    }
-
-    .scene[data-scene="5"] .upgrade-card {
-        min-height: 76px !important;
-        padding: 7px !important;
-    }
-
-    .scene[data-scene="5"] .upgrade-card-name {
-        font-size: 14px !important;
-    }
-
-    .scene[data-scene="6"] .system-scan {
-        transform: translate(-50%, -50%) scale(0.78) !important;
+    .scene[data-scene="2"] .cpu-line {
+        width: 62px !important;
     }
 
     .scene[data-scene="7"] .contact-form {
-        width: calc(100% - 28px) !important;
-        padding: 14px !important;
+        width: calc(100% - 26px) !important;
+        padding: 13px !important;
     }
 }
-/* =========================================================
-   HANBYTECH — MOBILE FIX 06.10
-   TYLKO: GÓRNE LINKI + SCENA 02 + SCENA 06
-   DESKTOP BEZ ZMIAN
-========================================================= */
-
 @media (max-width: 800px) {
-
-    /* ===== GÓRNE LINKI ===== */
-
-    .site-logo {
-        top: 26px !important;
-        left: 22px !important;
-        width: 108px !important;
-        max-width: none !important;
-        z-index: 1000 !important;
-    }
-
-    .portfolio-button,
-.price-button,
-.facebook-button {
-    position: fixed !important;
-    top: 16px !important;
-    height: 34px !important;
-    min-height: 34px !important;
-    max-height: 34px !important;
-    box-sizing: border-box !important;
-    margin: 0 !important;
-    z-index: 1001 !important;
-    white-space: nowrap !important;
-    transform: none !important;
-
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-.portfolio-button {
-    left: auto !important;
-    right: 160px !important;
-    width: 105px !important;
-    padding: 0 !important;
-    gap: 4px !important;
-    font-size: 7px !important;
-    letter-spacing: .8px !important;
-    overflow: hidden !important;
-}
-
-.price-button {
-    left: auto !important;
-    right: 90px !important;
-    width: 62px !important;
-    padding: 0 3px !important;
-    font-size: 8px !important;
-    letter-spacing: 1px !important;
-}
-
-.facebook-button {
-    left: auto !important;
-    right: 8px !important;
-    width: 76px !important;
-    padding: 0 3px !important;
-    gap: 2px !important;
-    font-size: 7px !important;
-    letter-spacing: .7px !important;
-}
-
-.facebook-icon {
-    display: none !important;
-}
-
-.facebook-arrow {
-    font-size: 8px !important;
-    flex-shrink: 0 !important;
-}
-
-
-    /* ===== SCENA 02 — ANALIZA PROCESORA ===== */
-
-    .scene[data-scene="2"] .scene-content {
-        top: 25% !important;
-        left: 0 !important;
-        width: 100% !important;
-        padding: 0 22px !important;
-        transform: translateY(-50%) !important;
-        z-index: 30 !important;
-    }
-
-    .scene[data-scene="2"] .scene-content h2 {
-        font-size: clamp(38px, 10.5vw, 52px) !important;
-        line-height: .94 !important;
-        margin-bottom: 16px !important;
-    }
-
-    .scene[data-scene="2"] .scene-content p {
-        max-width: 390px !important;
-        margin: 0 auto 18px !important;
-        font-size: 15px !important;
-        line-height: 1.45 !important;
-    }
-
-    .scene[data-scene="2"] .scene-content .info {
-        font-size: 8px !important;
-        letter-spacing: 2px !important;
-    }
-
-    .scene[data-scene="2"] .cpu-analysis {
-        top: 53% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) scale(.78) !important;
-        transform-origin: center center !important;
-        z-index: 10 !important;
-    }
-
-
-    /* ===== SCENA 06 — DIAGNOSTYKA ===== */
-
-    .scene[data-scene="6"] .scene-content {
-        top: 26% !important;
-        left: 0 !important;
-        width: 100% !important;
-        padding: 0 22px !important;
-        transform: translateY(-50%) !important;
-        z-index: 30 !important;
-    }
-
-    .scene[data-scene="6"] .scene-content h2 {
-        font-size: clamp(40px, 11vw, 54px) !important;
-        line-height: .94 !important;
-        margin-bottom: 18px !important;
-    }
-
-    .scene[data-scene="6"] .scene-content p {
-        max-width: 390px !important;
-        margin: 0 auto 20px !important;
-        font-size: 15px !important;
-        line-height: 1.45 !important;
-    }
-
-    .scene[data-scene="6"] .scene-content .info {
-        font-size: 8px !important;
-        letter-spacing: 2px !important;
-    }
-
-    .scene[data-scene="6"] .diagnostics-image {
-        top: 68% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) scale(.72) !important;
-        transform-origin: center center !important;
-        z-index: 10 !important;
-    }
-}
-
-
-/* Małe telefony */
-@media (max-width: 390px) {
-
-    .site-logo {
-        left: 18px !important;
-        width: 102px !important;
-    }
-
-    .portfolio-button {
-        left: calc(50% - 42px) !important;
-        width: 82px !important;
-    }
-
-    .price-button {
-        left: calc(50% + 47px) !important;
-        width: 59px !important;
-    }
-
-    .facebook-button {
-        left: calc(50% + 109px) !important;
-        width: 51px !important;
-    }
-
-    .scene[data-scene="2"] .cpu-analysis {
-        transform: translate(-50%, -50%) scale(.70) !important;
-    }
-
-    .scene[data-scene="6"] .diagnostics-image {
-        transform: translate(-50%, -50%) scale(.64) !important;
-    }
-}
-/* =========================================================
-   HANBYTECH — POPRAWKA MOBILE v2
-   NIE RUSZA DESKTOPU
-========================================================= */
-
-@media (max-width: 800px) {
-
-    /* ===== GÓRNE PRZYCISKI ===== */
-
-    .portfolio-button,
-    .price-button,
-    .facebook-button {
-        position: fixed !important;
-        top: 16px !important;
-        bottom: auto !important;
-        transform: none !important;
-        z-index: 9999 !important;
-        height: 34px !important;
-        min-height: 34px !important;
-        box-sizing: border-box !important;
-        margin: 0 !important;
-    }
-
-    .portfolio-button {
-        left: calc(100vw - 235px) !important;
-        right: auto !important;
-        width: 76px !important;
-        padding: 0 4px !important;
-        font-size: 8px !important;
-        letter-spacing: 1px !important;
-    }
-
-    .price-button {
-        left: calc(100vw - 153px) !important;
-        right: auto !important;
-        width: 62px !important;
-        padding: 0 4px !important;
-        font-size: 8px !important;
-        letter-spacing: 1px !important;
-    }
-
-    .facebook-button {
-        left: calc(100vw - 86px) !important;
-        right: auto !important;
-        width: 72px !important;
-        padding: 0 3px !important;
-        gap: 2px !important;
-        font-size: 7px !important;
-        letter-spacing: .6px !important;
-    }
-
-    .facebook-icon {
-        display: none !important;
-    }
-
-
-    /* =====================================================
-       SCENA 02 — CPU
-       KONTENER MA ZOSTAĆ NA CAŁY EKRAN
-    ===================================================== */
-
-    .scene[data-scene="2"] .cpu-analysis {
-        position: absolute !important;
-        inset: 0 !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: auto !important;
-        bottom: auto !important;
-        width: 100% !important;
-        height: 100% !important;
-        transform: none !important;
-        z-index: 1 !important;
-    }
-
-    .scene[data-scene="2"] .scene-content {
-        top: 27% !important;
-        left: 0 !important;
-        width: 100% !important;
-        padding: 0 20px !important;
-        transform: translateY(-50%) !important;
-        z-index: 50 !important;
-        box-sizing: border-box !important;
-    }
-
-    .scene[data-scene="2"] .scene-content h2 {
-        font-size: clamp(34px, 9vw, 48px) !important;
-        line-height: .95 !important;
-        margin-bottom: 14px !important;
-    }
-
-    .scene[data-scene="2"] .scene-content p {
-        max-width: 330px !important;
-        margin: 0 auto 16px !important;
-        font-size: 11px !important;
-        line-height: 1.55 !important;
-    }
-
-    .scene[data-scene="2"] .scene-content .info {
-        font-size: 7px !important;
-        letter-spacing: 1.5px !important;
-    }
-
-    .scene[data-scene="2"] .cpu-photo {
-        width: 68% !important;
-        height: 68% !important;
-        top: 65% !important;
-    }
-
-    .scene[data-scene="2"] .cpu-ring {
-        width: 270px !important;
-        height: 270px !important;
-        top: 65% !important;
-    }
-
-    .scene[data-scene="2"] .cpu-center {
-        top: 65% !important;
-    }
-
-
-    /* =====================================================
-       SCENA 06 — DIAGNOSTYKA
-       KONTENER MA ZOSTAĆ NA CAŁY EKRAN
-    ===================================================== */
-
-    .scene[data-scene="6"] .diagnostics-image {
-        position: absolute !important;
-        inset: 0 !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: auto !important;
-        bottom: auto !important;
-        width: 100% !important;
-        height: 100% !important;
-        transform: none !important;
-        z-index: 1 !important;
-        padding-bottom: 7% !important;
-        box-sizing: border-box !important;
-    }
-
-    .scene[data-scene="6"] .scene-content {
-        top: 27% !important;
-        left: 0 !important;
-        width: 100% !important;
-        padding: 0 20px !important;
-        transform: translateY(-50%) !important;
-        z-index: 50 !important;
-        box-sizing: border-box !important;
-    }
-
-    .scene[data-scene="6"] .scene-content h2 {
-        font-size: clamp(34px, 9.5vw, 50px) !important;
-        line-height: .95 !important;
-        margin-bottom: 14px !important;
-    }
-
-    .scene[data-scene="6"] .scene-content p {
-        max-width: 330px !important;
-        margin: 0 auto 16px !important;
-        font-size: 11px !important;
-        line-height: 1.55 !important;
-    }
-
-    .scene[data-scene="6"] .scene-content .info {
-        font-size: 7px !important;
-        letter-spacing: 1.5px !important;
-    }
-
-    .scene[data-scene="6"] .system-scan {
-        width: min(82vw, 360px) !important;
-        transform: scale(.72) !important;
-        transform-origin: bottom center !important;
-    }
-}
-
-
-/* ===== BARDZO MAŁE TELEFONY ===== */
-
-@media (max-width: 360px) {
-
-    .portfolio-button {
-        left: calc(100vw - 220px) !important;
-        width: 70px !important;
-    }
-
-    .price-button {
-        left: calc(100vw - 144px) !important;
-        width: 58px !important;
-    }
-
-    .facebook-button {
-        left: calc(100vw - 81px) !important;
-        width: 68px !important;
-    }
-
-    .scene[data-scene="2"] .cpu-ring {
-        width: 240px !important;
-        height: 240px !important;
-    }
-
-    .scene[data-scene="2"] .cpu-photo {
-        width: 62% !important;
-        height: 62% !important;
-    }
-
-    .scene[data-scene="6"] .system-scan {
-        transform: scale(.62) !important;
+    body::after {
+        content: "NOWY CSS DZIALA";
+        position: fixed;
+        top: 100px;
+        left: 20px;
+        z-index: 999999;
+        background: red;
+        color: white;
+        padding: 15px;
+        font-size: 16px;
+        font-weight: bold;
     }
 }
