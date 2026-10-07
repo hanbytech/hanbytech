@@ -4479,7 +4479,216 @@ body.price-open {
     letter-spacing: .5px;
 }
 
+
+/* =========================================================
+   INFORMACJA O PRYWATNOŚCI PRZY FORMULARZACH
+========================================================= */
+
+.form-privacy-note {
+    margin: 4px 0 0;
+    color: #666d77;
+    font-size: 8px;
+    line-height: 1.5;
+    letter-spacing: .5px;
+}
+
+.form-privacy-note a {
+    color: #8ebfff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(77,163,255,.35);
+    transition: color .2s ease, border-color .2s ease;
+}
+
+.form-privacy-note a:hover {
+    color: #ffffff;
+    border-color: #4da3ff;
+}
+
+
+/* =========================================================
+   POLITYKA PRYWATNOŚCI
+========================================================= */
+
+body.privacy-page {
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(77,163,255,.10),
+            transparent 34%
+        ),
+        #05070a;
+}
+
+.privacy-page .privacy-shell {
+    width: min(920px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 120px 0 70px;
+}
+
+.privacy-page .privacy-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 45px;
+}
+
+.privacy-page .privacy-logo img {
+    display: block;
+    width: 145px;
+    height: auto;
+}
+
+.privacy-page .privacy-back {
+    padding: 12px 16px;
+    border: 1px solid rgba(77,163,255,.4);
+    color: #d7dce3;
+    background: rgba(5,7,10,.72);
+    text-decoration: none;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    transition: .2s ease;
+}
+
+.privacy-page .privacy-back:hover {
+    color: #05070a;
+    background: #4da3ff;
+    border-color: #4da3ff;
+}
+
+.privacy-page .privacy-kicker {
+    margin-bottom: 12px;
+    color: #4da3ff;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.privacy-page h1 {
+    margin: 0;
+    max-width: 760px;
+    font-size: clamp(38px, 6vw, 72px);
+    line-height: .95;
+    letter-spacing: -2px;
+}
+
+.privacy-page .privacy-lead {
+    max-width: 720px;
+    margin: 24px 0 0;
+    color: #9ca3af;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.privacy-page .privacy-content {
+    display: grid;
+    gap: 14px;
+    margin-top: 48px;
+}
+
+.privacy-page .privacy-section {
+    padding: 24px 26px;
+    border: 1px solid rgba(77,163,255,.14);
+    background: rgba(255,255,255,.018);
+}
+
+.privacy-page .privacy-section h2 {
+    margin: 0 0 12px;
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1.2;
+    letter-spacing: .5px;
+}
+
+.privacy-page .privacy-section p,
+.privacy-page .privacy-section li {
+    color: #9ca3af;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.privacy-page .privacy-section p + p {
+    margin-top: 10px;
+}
+
+.privacy-page .privacy-section ul {
+    margin: 8px 0 0 20px;
+}
+
+.privacy-page .privacy-section a {
+    color: #8ebfff;
+}
+
+.privacy-page .privacy-updated {
+    margin-top: 24px;
+    color: #555d68;
+    font-size: 9px;
+    letter-spacing: 1.2px;
+}
+
+
 @media (max-width: 800px) {
+
+    .form-privacy-note {
+        margin-top: 3px !important;
+        font-size: 6px !important;
+        line-height: 1.35 !important;
+        letter-spacing: .2px !important;
+    }
+
+    .privacy-page .privacy-shell {
+        width: calc(100% - 28px);
+        padding: 85px 0 45px;
+    }
+
+    .privacy-page .privacy-top {
+        align-items: flex-start;
+        margin-bottom: 32px;
+    }
+
+    .privacy-page .privacy-logo img {
+        width: 108px;
+    }
+
+    .privacy-page .privacy-back {
+        padding: 10px 11px;
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+
+    .privacy-page h1 {
+        font-size: 38px !important;
+    }
+
+    .privacy-page .privacy-lead {
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    .privacy-page .privacy-content {
+        margin-top: 32px;
+        gap: 10px;
+    }
+
+    .privacy-page .privacy-section {
+        padding: 18px 16px;
+    }
+
+    .privacy-page .privacy-section h2 {
+        font-size: 13px !important;
+    }
+
+    .privacy-page .privacy-section p,
+    .privacy-page .privacy-section li {
+        font-size: 11px;
+        line-height: 1.6;
+    }
+
+
 
     html,
     body {

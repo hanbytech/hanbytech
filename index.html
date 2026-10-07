@@ -7,7 +7,24 @@
 
     <title>HanbyTech — Serwis komputerowy</title>
 
-    <link rel="stylesheet" href="style.css?v=1.1">
+    <meta
+        name="description"
+        content="HanbyTech — serwis komputerowy: diagnostyka, naprawa, czyszczenie, modernizacja sprzętu i pomoc z systemem."
+    >
+    <meta name="theme-color" content="#05070a">
+
+    <link rel="canonical" href="https://hanbytech.pl/">
+
+    <meta property="og:locale" content="pl_PL">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="HanbyTech — Serwis komputerowy">
+    <meta
+        property="og:description"
+        content="Diagnostyka, naprawa, czyszczenie i modernizacja komputerów."
+    >
+    <meta property="og:url" content="https://hanbytech.pl/">
+
+    <link rel="stylesheet" href="style.css?v=1.2">
 </head>
 
 <body>
@@ -460,7 +477,7 @@
         <div class="price-footer">
 
             <span>
-                Ostateczna cena może zależeć od zakresu prac.
+                Podane ceny są orientacyjne. Ostateczny koszt potwierdzam przed rozpoczęciem prac.
             </span>
 
             <button
@@ -529,6 +546,7 @@
                     type="text"
                     name="name"
                     placeholder="IMIĘ"
+                    autocomplete="name"
                     required
                 >
 
@@ -536,6 +554,7 @@
                     type="email"
                     name="email"
                     placeholder="E-MAIL"
+                    autocomplete="email"
                     required
                 >
 
@@ -555,7 +574,17 @@
                     </button>
                 </div>
 
-                <div class="price-inquiry-message" id="priceInquiryMessage"></div>
+                <div
+                    class="price-inquiry-message"
+                    id="priceInquiryMessage"
+                    aria-live="polite"
+                ></div>
+
+                <p class="form-privacy-note">
+                    Wysyłając formularz, przekazujesz dane w celu obsługi zapytania.
+                    Szczegóły znajdziesz w
+                    <a href="polityka-prywatnosci.html">Polityce prywatności</a>.
+                </p>
 
             </form>
 
@@ -1309,6 +1338,7 @@
                         type="text"
                         name="name"
                         placeholder="IMIĘ"
+                        autocomplete="name"
                         required
                     >
 
@@ -1316,6 +1346,7 @@
                         type="email"
                         name="email"
                         placeholder="E-MAIL"
+                        autocomplete="email"
                         required
                     >
 
@@ -1328,6 +1359,12 @@
                     <button type="submit">
                         WYŚLIJ WIADOMOŚĆ
                     </button>
+
+                    <p class="form-privacy-note">
+                        Wysyłając formularz, przekazujesz dane w celu obsługi wiadomości.
+                        Szczegóły znajdziesz w
+                        <a href="polityka-prywatnosci.html">Polityce prywatności</a>.
+                    </p>
 
                 </form>
 
@@ -1357,11 +1394,11 @@
 
     <div class="navigation">
 
-        <button id="prevScene">
+        <button type="button" id="prevScene" aria-label="Poprzednia sekcja">
             ↑
         </button>
 
-        <button id="nextScene">
+        <button type="button" id="nextScene" aria-label="Następna sekcja">
             ↓
         </button>
 
@@ -2002,7 +2039,7 @@ priceInquiryForm.addEventListener("submit", async (event) => {
 });
 </script>
 
-    <script src="script.js?v=1.1"></script>
+    <script src="script.js?v=1.2"></script>
 
 </body>
 </html>
