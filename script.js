@@ -73,7 +73,8 @@ function showScene(index) {
 
     if (counter) {
         const number = String(currentScene + 1).padStart(2, "0");
-        counter.textContent = `${number} / 07`;
+        counter.textContent =
+    `${String(currentScene + 1).padStart(2, "0")} / 07`;
     }
 
     if (progress) {

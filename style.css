@@ -5169,16 +5169,14 @@ body.price-open {
     }
 
     #sceneCounter {
-        position: fixed !important;
-        left: 50% !important;
-        right: auto !important;
-        top: auto !important;
-        bottom: 6px !important;
-        transform: translateX(-50%) !important;
-        margin: 0 !important;
-        text-align: center !important;
-        z-index: 1900 !important;
-    }
+    position: fixed !important;
+    left: 50% !important;
+    bottom: 6px !important;
+    transform: translateX(-50%) !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    line-height: 1 !important;
+}
 
     .scroll-line {
         display: none !important;
