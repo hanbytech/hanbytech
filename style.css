@@ -5598,3 +5598,36 @@ body.privacy-page {
         padding: 13px !important;
     }
 }
+
+/* =========================================================
+   OSTATECZNY FIX SCROLLA — POLITYKA PRYWATNOŚCI
+   Musi być na końcu pliku, po wszystkich regułach mobilnych.
+========================================================= */
+
+html.privacy-page-root {
+    height: auto !important;
+    min-height: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    touch-action: pan-y !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+html.privacy-page-root body.privacy-page {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    max-height: none !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+    touch-action: pan-y !important;
+}
+
+html.privacy-page-root .privacy-shell {
+    height: auto !important;
+    min-height: 100vh !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
