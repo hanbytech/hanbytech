@@ -1,4 +1,4 @@
-* {
+﻿* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -5286,55 +5286,60 @@ body.price-open {
     }
 
     .portfolio-button,
-    .price-button,
-    .facebook-button {
-        position: fixed !important;
-        top: 16px !important;
-        height: 34px !important;
-        min-height: 34px !important;
-        max-height: 34px !important;
-        box-sizing: border-box !important;
-        margin: 0 !important;
-        z-index: 1001 !important;
-        white-space: nowrap !important;
-        transform: none !important;
-    }
+.price-button,
+.facebook-button {
+    position: fixed !important;
+    top: 16px !important;
+    height: 34px !important;
+    min-height: 34px !important;
+    max-height: 34px !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    z-index: 1001 !important;
+    white-space: nowrap !important;
+    transform: none !important;
 
-    .portfolio-button {
-        left: calc(50% - 40px) !important;
-        right: auto !important;
-        width: 87px !important;
-        padding: 0 6px !important;
-        font-size: 8px !important;
-        letter-spacing: 1.2px !important;
-    }
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
 
-    .price-button {
-        left: calc(50% + 56px) !important;
-        right: auto !important;
-        width: 62px !important;
-        padding: 0 4px !important;
-        font-size: 8px !important;
-        letter-spacing: 1px !important;
-    }
+.portfolio-button {
+    left: auto !important;
+    right: 160px !important;
+    width: 87px !important;
+    padding: 0 5px !important;
+    font-size: 8px !important;
+    letter-spacing: 1.2px !important;
+}
 
-    .facebook-button {
-        left: calc(50% + 121px) !important;
-        right: auto !important;
-        width: 53px !important;
-        padding: 0 2px !important;
-        gap: 2px !important;
-        font-size: 7px !important;
-        letter-spacing: .7px !important;
-    }
+.price-button {
+    left: auto !important;
+    right: 90px !important;
+    width: 62px !important;
+    padding: 0 3px !important;
+    font-size: 8px !important;
+    letter-spacing: 1px !important;
+}
 
-    .facebook-icon {
-        display: none !important;
-    }
+.facebook-button {
+    left: auto !important;
+    right: 8px !important;
+    width: 76px !important;
+    padding: 0 3px !important;
+    gap: 2px !important;
+    font-size: 7px !important;
+    letter-spacing: .7px !important;
+}
 
-    .facebook-arrow {
-        font-size: 8px !important;
-    }
+.facebook-icon {
+    display: none !important;
+}
+
+.facebook-arrow {
+    font-size: 8px !important;
+    flex-shrink: 0 !important;
+}
 
 
     /* ===== SCENA 02 — ANALIZA PROCESORA ===== */
