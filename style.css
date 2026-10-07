@@ -4412,6 +4412,73 @@ body.price-open {
    Jeden blok mobilny. Desktop powyżej pozostaje bez zmian.
 ========================================================= */
 
+
+/* =========================================================
+   SCENA 07 — JAK WYGLĄDA NAPRAWA
+========================================================= */
+
+.repair-process {
+    width: 100%;
+    max-width: 520px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(77,163,255,0.16);
+}
+
+.repair-process-title {
+    color: #4da3ff;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.repair-process-steps {
+    display: grid;
+    gap: 4px;
+    margin-top: 12px;
+}
+
+.repair-step {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    gap: 12px;
+    align-items: start;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.045);
+}
+
+.repair-step:last-child {
+    border-bottom: none;
+}
+
+.repair-step-number {
+    color: #4da3ff;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(77,163,255,0.35);
+}
+
+.repair-step > div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.repair-step strong {
+    color: #ffffff;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+.repair-step small {
+    max-width: 390px;
+    color: #747b86;
+    font-size: 8px;
+    line-height: 1.45;
+    letter-spacing: .5px;
+}
+
 @media (max-width: 800px) {
 
     html,
@@ -5097,6 +5164,44 @@ body.price-open {
 
     .scene[data-scene="7"] .contact-details a {
         font-size: 11px !important;
+    }
+
+    .scene[data-scene="7"] .repair-process {
+        width: 100% !important;
+        max-width: 340px !important;
+        margin-top: 11px !important;
+        padding-top: 9px !important;
+    }
+
+    .scene[data-scene="7"] .repair-process-title {
+        font-size: 6px !important;
+        letter-spacing: 1.4px !important;
+    }
+
+    .scene[data-scene="7"] .repair-process-steps {
+        gap: 1px !important;
+        margin-top: 6px !important;
+    }
+
+    .scene[data-scene="7"] .repair-step {
+        grid-template-columns: 25px 1fr !important;
+        gap: 7px !important;
+        padding: 4px 0 !important;
+    }
+
+    .scene[data-scene="7"] .repair-step-number {
+        font-size: 6px !important;
+        letter-spacing: 1px !important;
+    }
+
+    .scene[data-scene="7"] .repair-step strong {
+        font-size: 6px !important;
+        line-height: 1.2 !important;
+        letter-spacing: .7px !important;
+    }
+
+    .scene[data-scene="7"] .repair-step small {
+        display: none !important;
     }
 
     .scene[data-scene="7"] .contact-image {
