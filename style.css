@@ -6046,18 +6046,15 @@ html.privacy-page-root .privacy-shell {
 
 }
 /* =========================================
-   MIEJSCE POD GÓRNY PASEK
+   MIEJSCE POD GÓRNY PASEK — DESKTOP
 ========================================= */
 
 @media (min-width: 801px) {
 
-    .story {
-        position: absolute !important;
-        top: 90px !important;
-        left: 0 !important;
-
-        width: 100% !important;
-        height: calc(100vh - 90px) !important;
+    .scene {
+        top: 94px !important;
+        bottom: 0 !important;
+        height: auto !important;
     }
 
 }
