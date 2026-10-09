@@ -6045,3 +6045,19 @@ html.privacy-page-root .privacy-shell {
     }
 
 }
+/* =========================================
+   MIEJSCE POD GÓRNY PASEK
+========================================= */
+
+@media (min-width: 801px) {
+
+    .story {
+        position: absolute !important;
+        top: 90px !important;
+        left: 0 !important;
+
+        width: 100% !important;
+        height: calc(100vh - 90px) !important;
+    }
+
+}
