@@ -5630,4 +5630,418 @@ html.privacy-page-root .privacy-shell {
     max-height: none !important;
     overflow: visible !important;
 }
+/* =====================================================
+   FUTURYSTYCZNY GÓRNY PASEK — HANBYTECH
+===================================================== */
 
+.future-topbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: calc(100% - 70px);
+    max-width: 1500px;
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 12px 0 22px;
+
+    z-index: 5000;
+
+    border: 1px solid rgba(77, 163, 255, 0.22);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(8, 12, 20, 0.92),
+            rgba(4, 7, 12, 0.82)
+        );
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.015),
+        0 0 25px rgba(77,163,255,0.06),
+        0 12px 40px rgba(0,0,0,0.28);
+
+    clip-path: polygon(
+        16px 0,
+        calc(100% - 16px) 0,
+        100% 16px,
+        100% calc(100% - 16px),
+        calc(100% - 16px) 100%,
+        16px 100%,
+        0 calc(100% - 16px),
+        0 16px
+    );
+}
+
+
+/* subtelna linia świetlna */
+
+.future-topbar::after {
+    content: "";
+
+    position: absolute;
+
+    left: 24px;
+    right: 24px;
+    bottom: 0;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(77,163,255,0.7),
+            transparent
+        );
+
+    opacity: 0.45;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.future-logo {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    width: 145px;
+
+    text-decoration: none;
+
+    z-index: 2;
+}
+
+
+.future-logo img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 0 10px
+            rgba(77,163,255,0.12)
+        );
+
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+}
+
+
+.future-logo:hover img {
+    transform: scale(1.025);
+
+    filter:
+        drop-shadow(
+            0 0 14px
+            rgba(77,163,255,0.28)
+        );
+}
+
+
+/* =====================================================
+   ŚRODKOWA NAWIGACJA
+===================================================== */
+
+.future-nav {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+}
+
+
+.future-nav-link {
+    position: relative;
+
+    min-width: 110px;
+    height: 40px;
+
+    padding: 0 18px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border: 1px solid transparent;
+
+    background: transparent;
+
+    color: #9ca3af;
+
+    text-decoration: none;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.6px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* kreska pod przyciskiem */
+
+.future-nav-link::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 3px;
+
+    width: 0;
+    height: 1px;
+
+    transform: translateX(-50%);
+
+    background: #4da3ff;
+
+    box-shadow:
+        0 0 8px rgba(77,163,255,0.8);
+
+    transition: width 0.25s ease;
+}
+
+
+.future-nav-link:hover {
+    color: #ffffff;
+
+    border-color:
+        rgba(77,163,255,0.18);
+
+    background:
+        rgba(77,163,255,0.035);
+}
+
+
+.future-nav-link:hover::after {
+    width: 42%;
+}
+
+
+.future-arrow {
+    color: #4da3ff;
+
+    font-size: 12px;
+}
+
+
+/* reset buttona CENNIK */
+
+.future-price {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+
+/* =====================================================
+   SKONTAKTUJ SIĘ
+===================================================== */
+
+.future-topbar .future-contact {
+    position: relative !important;
+
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+
+    width: auto !important;
+
+    min-width: 190px;
+    height: 42px;
+
+    margin: 0 !important;
+
+    padding: 0 20px !important;
+
+    opacity: 1 !important;
+
+    pointer-events: auto !important;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    border:
+        1px solid
+        rgba(77,163,255,0.55);
+
+    background:
+        linear-gradient(
+            110deg,
+            rgba(77,163,255,0.08),
+            rgba(91,78,255,0.10)
+        );
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    box-shadow:
+        inset 0 0 18px
+        rgba(77,163,255,0.025),
+
+        0 0 16px
+        rgba(77,163,255,0.07);
+
+    clip-path: polygon(
+        10px 0,
+        calc(100% - 10px) 0,
+        100% 10px,
+        100% calc(100% - 10px),
+        calc(100% - 10px) 100%,
+        10px 100%,
+        0 calc(100% - 10px),
+        0 10px
+    );
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.future-topbar .future-contact:hover {
+    transform: translateY(-1px);
+
+    border-color: #4da3ff;
+
+    background:
+        linear-gradient(
+            110deg,
+            rgba(77,163,255,0.14),
+            rgba(91,78,255,0.13)
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 0 18px
+        rgba(77,163,255,0.16),
+
+        0 0 35px
+        rgba(88,70,255,0.08);
+}
+
+
+.future-contact-icon {
+    color: #4da3ff;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .future-topbar {
+        top: 10px;
+
+        width: calc(100% - 18px);
+        height: 50px;
+
+        padding: 0 7px 0 12px;
+    }
+
+
+    .future-logo {
+        width: 84px;
+    }
+
+
+    .future-nav {
+        position: absolute;
+
+        left: auto;
+        right: 8px;
+
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        gap: 3px;
+    }
+
+
+    .future-nav-link {
+        min-width: auto;
+
+        height: 30px;
+
+        padding: 0 7px;
+
+        font-size: 6px;
+
+        letter-spacing: 0.7px;
+    }
+
+
+    .future-arrow {
+        display: none;
+    }
+
+
+    /*
+       Na telefonie kontakt zostaje jako
+       Twój działający dolny przycisk,
+       żeby góra nie była zapchana.
+    */
+
+    .future-topbar .future-contact {
+        display: none !important;
+    }
+
+}
