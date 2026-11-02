@@ -3,3 +3,6 @@
 
 /portfolio.css
   Cache-Control: public, max-age=31536000, immutable
+
+/portfolio-v2.html
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
