@@ -1,0 +1,5 @@
+/portfolio.html
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+
+/portfolio.css
+  Cache-Control: public, max-age=31536000, immutable
